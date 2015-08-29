@@ -2,22 +2,13 @@
 *.orig
 *.pyc
 *.swp
-*.rej
 *~
 /.arcrc
 /.bash_history
 /bin/arcanist
 /bin/libphutil
-/.certs
 /.config
 /.dropbox
-/.dropbox-master
-/.dvdcss
-/.ebooksrc
-/.ec2
-/.fontconfig
-/.fonts
-/.freemind
 /.history
 /.npm
 /.offlineimap
@@ -36,7 +27,12 @@
 /Documents
 /Downloads
 /Dropbox
+
 /Library/*
+!/Library/Application\ Support
+/Library/Application\ Support/*
+!/Library/Application\ Support/Karabiner
+
 /Mail
 /Movies
 /Music
