@@ -1,0 +1,28 @@
+text/html; open -a "Google Chrome" %s & sleep 2; test=sh -c 'test -n $DISPLAY'; needsterminal;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+# MS Word documents
+application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+
+# Images
+image/jpg; ~/.mutt/view_attachment.sh %s jpg
+image/jpeg; ~/.mutt/view_attachment.sh %s jpg
+image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
+image/png; ~/.mutt/view_attachment.sh %s png
+image/gif; ~/.mutt/view_attachment.sh %s gif
+
+# PDFs
+application/pdf; ~/.mutt/view_attachment.sh %s pdf
+
+video/quicktime; ~/.mutt/view_attachment.sh %s mov
+
+# Unidentified files
+application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
+
+text/plain; ~/.mutt/view_attachment.sh %s txt
+text/x-python-script; ~/.mutt/view_attachment.sh %s "-" '/Applications/Sublime Text.app'
+
+
+application/ms-excel; ~/.mutt/view_attachment.sh %s "-"
+application/vnd.ms-excel; ~/.mutt/view_attachment.sh  %s "-" '/Applications/OpenOffice.org'
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.mutt/view_attachment.sh  %s "-" '/Applications/OpenOffice.app'

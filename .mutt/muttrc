@@ -1,0 +1,160 @@
+# General ----------------------------------------
+set folder      = ~/Mail
+set editor      = "vim"
+set mbox_type   = Maildir
+
+# Account ----------------------------------------
+set realname = "Jacob Burch"
+set from = "jacob@burch.io"
+set mbox_type   = Maildir
+
+set my_user="jacob@burch.io"
+set my_smtp_server="mail.messagingengine.com"
+set smtp_url="smtp://$my_user@$my_smtp_server:587/"
+set ssl_starttls = yes
+set smtp_pass = `getpass fastmail`
+
+
+# Folder names
+set my_inbox="INBOX"
+set my_archive="Archive"
+set my_drafts="drafts"
+set my_sent="sent"
+set my_spam="Junk Mail"
+set my_trash="Trash"
+set my_receipts="receipts"
+set my_starred="starred"
+
+
+
+# Spool (inbox)
+set spoolfile = "+$my_inbox"
+# Draft folder
+set postponed = "+$my_drafts"
+# Save sent mails to the Sent folder
+unset record
+set trash = "=$my_trash"
+
+mailboxes   +$my_inbox \
+            +$my_archive \
+            +$my_sent \
+            +$my_drafts \
+            +$my_trash \
+            +$my_receipts \
+            +$my_starred \
+
+# activate TLS if available on the server
+set ssl_starttls=yes
+# always use SSL when connecting to a server
+set ssl_force_tls=yes
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/messages
+set certificate_file=~/.mutt/certificates
+
+
+set include = yes
+# Organize into threads, sorting the threads by sender
+set sort=threads
+set sort_aux=from
+
+# Macros -----------------------------------------------
+
+# Navigation
+macro index,pager gl "<change-folder>"
+macro index,pager gi "<change-folder>=$my_inbox<enter>" "Go to inbox"
+macro index,pager ga "<change-folder>=$my_archive<enter>" "Go to all mail"
+macro index,pager gd "<change-folder>=$my_drafts<enter>" "Go to drafts"
+macro index,pager gt "<change-folder>=$my_sent<enter>" "Go to sent mail"
+macro index,pager gs "<change-folder>=$my_spam<enter>" "Go to sent mail"
+
+macro index,pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+# Hitting G replies to all
+macro index,pager G '<group-reply>'
+
+# archive messages
+macro index y "<save-message>+$my_archive<enter>"
+macro pager y "<exit><save-message>+$my_archive<enter>"
+macro index \csr "<save-message>+$my_receipts<enter>"
+macro pager \csr "<exit><save-message>+$my_receipts<enter>"
+macro index \css "<save-message>+$my_starred<enter>"
+macro pager \css "<exit><save-message>+$my_starred<enter>"
+
+# Open HTML Attachments
+macro index,pager H <view-attachments>/html<enter><view-mailcap><exit>
+
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html                                   # view html automatically
+alternative_order text/plain text/enriched text/html  # save html for last
+
+# Sidebar Patch --------------------------------------
+set sidebar_visible = yes
+set sidebar_width=24
+color sidebar_new color221 color233
+
+set date_format="%a, %b %d %H:%M"
+set index_format="%4C %Z %D %-16.16L  %s %* %c"
+
+# Status Bar -----------------------------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+
+# Colors ---------------------------------------------
+source ~/.mutt/solarized.muttrc
+
+# Index View Options ---------------------------------
+set date_format = "%m/%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set sort = threads                         # like gmail
+set sort_aux = reverse-last-date-received  # like gmail
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# Index Key Bindings ---------------------------------
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+# Ctrl-R to mark all as read
+macro index \cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Sync email
+macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Sidebar Navigation ---------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+# Pager View Options ---------------------------------
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+# Pager Key Bindings ---------------------------------
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+
+bind pager R  group-reply
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+bind editor <Tab> complete-query
+bind editor ^T    complete
