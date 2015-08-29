@@ -1,0 +1,27 @@
+[user]
+    name = Jacob Burch
+    email = jacob@burch.io
+[alias]
+    # nice log output
+    lg = log --graph --pretty=oneline --abbrev-commit --decorate
+    b = !git-branch
+    st = status
+    ci = commit --verbose
+    co = checkout
+    di = diff
+    l = "!. ~/bin/.githelpers && pretty_git_log"
+    r = !GIT_NO_PAGER=1 git l -30
+    ra = !git r --all
+    dc = diff --cached
+    amend = commit --amend
+    aa = add --all
+    ff = merge --ff-only
+    pullff = pull --ff-only
+[color]
+    # turn on color
+    ui = auto
+[svn]
+    # push empty directory removals back to svn at directory deletes
+    rmdir = true
+[merge]
+    tool = vimdiff
