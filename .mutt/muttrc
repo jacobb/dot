@@ -67,16 +67,23 @@ macro index,pager gd "<change-folder>=$my_drafts<enter>" "Go to drafts"
 macro index,pager gt "<change-folder>=$my_sent<enter>" "Go to sent mail"
 macro index,pager gs "<change-folder>=$my_spam<enter>" "Go to sent mail"
 
+macro index \Csr "<save-message>+$my_receipts<enter>"
+macro pager \Csr "<exit><save-message>+$my_receipts<enter>"
+
+macro index \css "<save-message>+$my_starred<enter>"
+macro pager \css "<exit><save-message>+$my_starred<enter>"
+macro index,pager G '<group-reply>'
 macro index,pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 # Hitting G replies to all
-macro index,pager G '<group-reply>'
 
 # archive messages
 macro index y "<save-message>+$my_archive<enter>"
 macro pager y "<exit><save-message>+$my_archive<enter>"
+
 macro index \csr "<save-message>+$my_receipts<enter>"
 macro pager \csr "<exit><save-message>+$my_receipts<enter>"
+
 macro index \css "<save-message>+$my_starred<enter>"
 macro pager \css "<exit><save-message>+$my_starred<enter>"
 
