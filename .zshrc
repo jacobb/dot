@@ -13,8 +13,6 @@ export CLICOLOR='Yes'
 export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.git'
 export PYTHONUNBUFFERED=true
 
-# option+backspace
-bindkey -e
 # bindkey "^[[3~" delete-char
 # bindkey "^[3;5-" delete-char
 
@@ -51,3 +49,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 source virtualenvwrapper.sh
 
 source .zsh/prompt.sh
+
+# use emacs terminal control because muscle memory
+bindkey -e
+# disable XON so i can use ctrl+s in applications
+stty -ixon
