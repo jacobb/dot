@@ -1,6 +1,6 @@
 [user]
-    name = Jacob Burch
-    email = jacob@burch.io
+    name = "Jacob Burch"
+    email = "jacob@burch.io"
 [alias]
     # nice log output
     lg = log --graph --pretty=oneline --abbrev-commit --decorate
