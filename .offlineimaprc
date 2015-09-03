@@ -15,6 +15,7 @@ nametrans = lambda folder: {
                             'Trash': 'INBOX.Trash',
                             'Archive': 'INBOX.Archive',
                             'receipts': 'INBOX.receipts',
+                            'work': 'INBOX.work',
                             'starred': 'INBOX.starred',
                             }.get(folder, folder)
 
@@ -31,6 +32,7 @@ holdconnectionopen = yes
 nametrans = lambda folder: {
                             'INBOX.Sent Items': 'sent',
                             'INBOX.Drafts': 'drafts',
+                            'INBOX.work': 'work',
                             'INBOX.Trash': 'Trash',
                             'INBOX.receipts': 'receipts',
                             'INBOX.starred': 'starred',
