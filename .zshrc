@@ -16,6 +16,11 @@ export PYTHONUNBUFFERED=true
 # bindkey "^[[3~" delete-char
 # bindkey "^[3;5-" delete-char
 
+bindkey "^?" backward-delete-char
+bindkey "^W" backward-kill-word
+bindkey '^e' end-of-line
+bindkey '^a' beginning-of-line
+
 # number of lines kept in history
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
