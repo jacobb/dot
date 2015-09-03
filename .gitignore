@@ -8,11 +8,14 @@
 /bin/arcanist
 /bin/libphutil
 /.dropbox
+/.erlang.cookie
 /.history
+/.ipython
 /.npm
 /.offlineimap
 /.oracle_jre_usage
 /.pip
+/.psql_history
 /.ssh
 /.tendril
 /.viminfo
