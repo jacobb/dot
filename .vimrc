@@ -12,6 +12,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'hynek/vim-python-pep8-indent'
 
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
 Bundle 'othree/html5.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'hdima/python-syntax'

@@ -21,7 +21,9 @@
 /.tmp
 /.viminfo
 /.vim/plugin
-/.vim/syntax
+/.vim/syntax/*
+!/.vim/syntax/html.vim
+!/.vim/syntax/markdown.vim
 /.vim/bundle
 /.virtualenvs
 /.CFUserTextEncoding
