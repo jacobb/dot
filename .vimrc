@@ -50,7 +50,7 @@ set background=dark
 set backspace=indent,eol,start
 
 "---- Indent Settings ----
-set smartindent
+set cindent
 set autoindent
 set tabstop=4
 set softtabstop=4
