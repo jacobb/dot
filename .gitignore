@@ -17,6 +17,7 @@
 /papers
 /.pip
 /.psql_history
+/.pythonhist
 /.ssh
 /.tendril
 /.tmp
