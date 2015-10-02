@@ -15,6 +15,10 @@
 /.offlineimap
 /.oracle_jre_usage
 /papers
+/.NERDTreeBookmarks
+/.pgcli-history
+/.pgcli.log
+/.pyenv/
 /.pip
 /.psql_history
 /.pythonhist
