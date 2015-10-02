@@ -52,6 +52,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LSCOLORS}
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 source virtualenvwrapper.sh
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 source .zsh/prompt.sh
 
