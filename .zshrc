@@ -60,3 +60,7 @@ source .zsh/prompt.sh
 bindkey -e
 # disable XON so i can use ctrl+s in applications
 stty -ixon
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/
