@@ -50,17 +50,20 @@ zstyle ':completion::complete:*:vim:*' ignored-patterns '*.pyc'
 zstyle ':completion:*:default' list-colors ${(s.:.)LSCOLORS}
 
 # virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source virtualenvwrapper.sh
+#
+# export WORKON_HOME=$HOME/.virtualenvs
+# source virtualenvwrapper.sh
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+alias pa='pyenv activate'
 
+# Prompt
 source .zsh/prompt.sh
 
 # use emacs terminal control because muscle memory
 bindkey -e
 # disable XON so i can use ctrl+s in applications
 stty -ixon
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/
