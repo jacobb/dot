@@ -9,8 +9,11 @@
 /bin/libphutil
 /.dropbox
 /.erlang.cookie
+/.netrc
+/.heroku
 /.history
 /.ipython
+/.lesshst
 /.npm
 /.offlineimap
 /.oracle_jre_usage
@@ -40,6 +43,7 @@
 /books
 /notes
 /talks
+/tmp
 /Applications
 /Desktop
 /Documents
