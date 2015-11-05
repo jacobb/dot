@@ -1,23 +1,33 @@
 {
-    "env": {
-        "browser": true,
-        "node": true
+    "rules": {
+        "indent": [
+            2,
+            4
+        ],
+        "quotes": [
+            2,
+            "double"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "react/jsx-uses-react": 1
     },
-    "settings": {
-        "ecmascript": 6,
-        "jsx": true
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended",
+    "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true
     },
     "plugins": [
-        'react'
-    ],
-    "ecmaFeatures": {
-        "jsx": true
-    },
-    "rules": {
-        "strict": 0,
-        "quotes": 0,
-        "no-unused-vars": 0,
-        "camelcase": 0,
-        "no-underscore-dangle": 0
-    }
+        "react"
+    ]
 }
