@@ -7,6 +7,7 @@
 /.bash_history
 /bin/arcanist
 /bin/libphutil
+/.config/cmus
 /.dropbox
 /.erlang.cookie
 /.netrc
@@ -26,6 +27,7 @@
 /.pip
 /.psql_history
 /.pythonhist
+/.sqlite_history
 /.ssh
 /.tendril
 /.tmp
