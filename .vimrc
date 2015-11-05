@@ -11,6 +11,7 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'othree/yajs.vim'
 
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
