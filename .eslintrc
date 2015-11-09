@@ -16,7 +16,8 @@
             2,
             "always"
         ],
-        "react/jsx-uses-react": 1
+        "react/jsx-uses-react": 1,
+        "no-console": 0
     },
     "env": {
         "es6": true,
