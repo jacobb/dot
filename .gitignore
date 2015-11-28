@@ -6,10 +6,13 @@
 /.arcrc
 /.bash_history
 /bin/arcanist
+/.cache
 /bin/libphutil
 /.config/cmus
+/.config/configstore
 /.dropbox
 /.erlang.cookie
+/.gem
 /.netrc
 /.heroku
 /.history
@@ -28,6 +31,7 @@
 /.psql_history
 /.pythonhist
 /.sqlite_history
+/.spectrum
 /.ssh
 /.tendril
 /.tmp
@@ -66,4 +70,5 @@
 /Sites
 /blog
 /decks
+/podcasts
 /src
