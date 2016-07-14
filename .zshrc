@@ -6,6 +6,9 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/jacob/bin:$PATH"
 
+# FLAGS
+export CFLAGS="-I$(brew --prefix openssl)/include"
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
 # bin options
 export LS_OPTIONS='--color=auto'
 export LSCOLORS=''
@@ -25,6 +28,8 @@ bindkey '^a' beginning-of-line
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 export HISTFILE=~/.history
+zstyle ':completion:::git:*' script /usr/local/share/zsh/site-functions/git-completion.bash
+fpath=(/usr/local/share/zsh/site-functions $fpath)
 
 # functions
 function super_clear() {
@@ -51,8 +56,8 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LSCOLORS}
 
 # virtualenv
 #
-# export WORKON_HOME=$HOME/.virtualenvs
-# source virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+source virtualenvwrapper.sh
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 eval "$(pyenv init -)"
@@ -67,3 +72,6 @@ bindkey -e
 # disable XON so i can use ctrl+s in applications
 stty -ixon
 export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""'
