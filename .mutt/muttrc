@@ -66,7 +66,8 @@ macro index,pager gl "<change-folder>"
 macro index,pager gi "<change-folder>=$my_inbox<enter>" "Go to inbox"
 macro index,pager ga "<change-folder>=$my_archive<enter>" "Go to all mail"
 macro index,pager gd "<change-folder>=$my_drafts<enter>" "Go to drafts"
-macro index,pager gt "<change-folder>=$my_sent<enter>" "Go to sent mail"
+macro index,pager gt "<change-folder>=$my_trash<enter>" "Go to trash"
+macro index,pager ge "<change-folder>=$my_sent<enter>" "Go to sent mail"
 macro index,pager gs "<change-folder>=$my_starred<enter>" "Go to starred mail"
 macro index,pager gw "<change-folder>=$my_work<enter>" "Go to work mail"
 macro index,pager gr "<change-folder>=$my_receipts<enter>" "Go to receipts"
@@ -112,7 +113,7 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 
 
 # Colors ---------------------------------------------
-source ~/.mutt/solarized.muttrc
+source ~/.mutt/kindly.muttrc
 
 # Index View Options ---------------------------------
 set date_format = "%m/%d"
