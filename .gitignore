@@ -12,6 +12,7 @@
 /.config/configstore
 /.dropbox
 /.erlang.cookie
+/.fzf
 /.gem
 /.netrc
 /.heroku
@@ -42,6 +43,7 @@
 !/.vim/syntax/html.vim
 !/.vim/syntax/markdown.vim
 /.vim/bundle
+/.vim/plugged
 /.virtualenvs
 /.CFUserTextEncoding
 /.Trash
