@@ -1,33 +1,39 @@
 " Vundle Stuff
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'othree/yajs.vim'
+call plug#begin('~/.vim/plugged')
+Plug 'gmarik/Vundle.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'pmsorhaindo/syntastic-local-eslint.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-Bundle 'othree/html5.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'hdima/python-syntax'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'mtth/scratch.vim'
-Bundle 'mxw/vim-jsx'
-Bundle 'pangloss/vim-javascript'
-call vundle#end()
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+Plug 'hdima/python-syntax'
+Plug 'othree/html5.vim'
+Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'mtth/scratch.vim'
+
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+call plug#end()
+
 syntax on
 filetype plugin indent on
 
-set wildignore+=bower_components/*,node_modules/*,htmlcov/*,tmp/*,*.so,*.swp,*.zip,*.pyc,*.coverage
+set wildignore+=*/bundled/*,media/*,bower_components/*,node_modules/*,htmlcov/*,tmp/*,*.so,*.swp,*.zip,*.pyc,*.coverage
 
 let mapleader = " "
 " Enable file type detection and do language-dependent indenting.
@@ -111,12 +117,14 @@ let NERDTreeRespectWildIgnore=1
 
 " airline
 set laststatus=2
+let g:airline_theme='tomorrow'
 
 " syntastic
 let g:syntastic_python_checkers = ['flake8']
 " let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_rst_checkers = ['rstcheck']
+let g:syntastic_always_populate_loc_list = 1
 
 " python specific
 let python_highlight_all = 1
@@ -175,4 +183,5 @@ function! SelectaFile(path)
   call SelectaCommand(FindWithWildignore(), "", ":e")
 endfunction
 
-nnoremap <leader>f :call SelectaFile(".")<cr>
+" nnoremap <leader>f :call SelectaFile(".")<cr>
+nnoremap <leader>f :FZF<cr>
