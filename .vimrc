@@ -64,8 +64,6 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-iab lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit
-
 set splitbelow splitright
 set winwidth=115
 " We have to have a winheight bigger than we want to set winminheight. But if
