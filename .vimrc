@@ -65,13 +65,16 @@ set shiftwidth=4
 set expandtab
 
 set splitbelow splitright
-set winwidth=115
-" We have to have a winheight bigger than we want to set winminheight. But if
-" " we set winheight to be huge before winminheight, the winminheight set will
-" " fail.
-set winheight=10
-set winminheight=8
-set winheight=999
+if &diff
+else
+    set winwidth=115
+    " We have to have a winheight bigger than we want to set winminheight. But if
+    " " we set winheight to be huge before winminheight, the winminheight set will
+    " " fail.
+    set winheight=10
+    set winminheight=8
+    set winheight=999
+endif
 
 " Vertical and horizontal split then hop to a new buffer
 noremap <Leader>v :vsp^M^W^W<cr>
@@ -183,3 +186,5 @@ endfunction
 
 " nnoremap <leader>f :call SelectaFile(".")<cr>
 nnoremap <leader>f :FZF<cr>
+
+let g:jsx_ext_required = 0
