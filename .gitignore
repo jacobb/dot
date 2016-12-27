@@ -39,9 +39,6 @@
 /.vagrant.d/
 /.viminfo
 /.vim/plugin
-/.vim/syntax/*
-!/.vim/syntax/html.vim
-!/.vim/syntax/markdown.vim
 /.vim/bundle
 /.vim/plugged
 /.virtualenvs
