@@ -59,7 +59,7 @@ white_time_single_prompt() {
 
 # simple prompt
 simple_prompt() {
-    PROMPT="$bblue(%~)%# $normal"
+    PROMPT="$bblue(%~)%#($VIRTUAL_ENV) $normal"
     RPROMPT="$green%n@%m$normal"
 }
 simple_prompt

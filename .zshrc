@@ -57,7 +57,6 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LSCOLORS}
 # virtualenv
 #
 export WORKON_HOME=$HOME/.virtualenvs
-source virtualenvwrapper.sh
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 eval "$(pyenv init -)"
@@ -75,3 +74,6 @@ export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
