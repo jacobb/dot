@@ -77,3 +77,4 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(direnv hook zsh)"
