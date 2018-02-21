@@ -15,6 +15,7 @@ export LSCOLORS=''
 export CLICOLOR='Yes'
 export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.git'
 export PYTHONUNBUFFERED=true
+export CLASSPATH=/Automation/lib/testng-6.11.jar:/Automation/lib/*:.
 
 # bindkey "^[[3~" delete-char
 # bindkey "^[3;5-" delete-char
@@ -28,7 +29,6 @@ bindkey '^a' beginning-of-line
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 export HISTFILE=~/.history
-zstyle ':completion:::git:*' script /usr/local/share/zsh/site-functions/git-completion.bash
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
 # functions
@@ -66,6 +66,7 @@ alias pa='pyenv activate'
 # Prompt
 source .zsh/prompt.sh
 
+
 # use emacs terminal control because muscle memory
 bindkey -e
 # disable XON so i can use ctrl+s in applications
@@ -78,3 +79,15 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(direnv hook zsh)"
+
+function colors() { for C in {0..255}; do echo -en "\e[${C}m$C " ; done }
+eval "$(thefuck --alias)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jacob/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jacob/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jacob/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jacob/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Autocomplete
+source .kubectl.zsh

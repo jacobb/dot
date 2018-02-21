@@ -28,6 +28,7 @@ Plug 'mtth/scratch.vim'
 
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'ekalinin/Dockerfile.vim'
 call plug#end()
 
 syntax on
@@ -124,6 +125,7 @@ let g:airline_theme='tomorrow'
 let g:syntastic_python_checkers = ['flake8']
 " let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:syntastic_rst_checkers = ['rstcheck']
 let g:syntastic_always_populate_loc_list = 1
 
@@ -188,3 +190,4 @@ endfunction
 nnoremap <leader>f :FZF<cr>
 
 let g:jsx_ext_required = 0
+let g:riv_fold_auto_update = 0
