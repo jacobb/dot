@@ -82,12 +82,3 @@ eval "$(direnv hook zsh)"
 
 function colors() { for C in {0..255}; do echo -en "\e[${C}m$C " ; done }
 eval "$(thefuck --alias)"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jacob/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jacob/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jacob/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jacob/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Autocomplete
-source .kubectl.zsh
