@@ -1,5 +1,5 @@
 [flake8]
-ignore  = E128 C901
-max-line-length = 160
+ignore  = E128
+max-line-length = 84
 exclude = tests/*
 max-complexity = 10
