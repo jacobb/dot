@@ -9,11 +9,9 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'pmsorhaindo/syntastic-local-eslint.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'godlygeek/tabular'
@@ -29,6 +27,7 @@ Plug 'mtth/scratch.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 syntax on
@@ -120,17 +119,6 @@ let NERDTreeRespectWildIgnore=1
 " airline
 set laststatus=2
 let g:airline_theme='tomorrow'
-
-" syntastic
-let g:syntastic_python_checkers = ['flake8']
-" let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
-let g:syntastic_rst_checkers = ['rstcheck']
-let g:syntastic_always_populate_loc_list = 1
-
-" python specific
-let python_highlight_all = 1
 
 " backup stuff
 " Store all swap files together, to prevent synching of swp and backup~ files in Dropbox
