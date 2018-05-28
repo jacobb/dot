@@ -1,7 +1,6 @@
 export EDITOR='vim'
 
 # PATH
-export PATH="/Users/jacob/bin/arcanist/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/jacob/bin:$PATH"
@@ -19,6 +18,7 @@ export CLASSPATH=/Automation/lib/testng-6.11.jar:/Automation/lib/*:.
 
 # bindkey "^[[3~" delete-char
 # bindkey "^[3;5-" delete-char
+
 
 bindkey "^?" backward-delete-char
 bindkey "^W" backward-kill-word
@@ -57,14 +57,14 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LSCOLORS}
 # virtualenv
 #
 export WORKON_HOME=$HOME/.virtualenvs
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 alias pa='pyenv activate'
 
 # Prompt
-source .zsh/prompt.sh
+source scripts/prompt.sh
 
 
 # use emacs terminal control because muscle memory
@@ -73,7 +73,6 @@ bindkey -e
 stty -ixon
 export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
@@ -82,3 +81,10 @@ eval "$(direnv hook zsh)"
 
 function colors() { for C in {0..255}; do echo -en "\e[${C}m$C " ; done }
 eval "$(thefuck --alias)"
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
