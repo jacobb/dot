@@ -5,7 +5,8 @@
 *~
 /.arcrc
 /.bash_history
-/bin/arcanist
+/bin/kubectl
+/bin/vi
 /.cache
 /bin/libphutil
 /bin/helm
@@ -52,6 +53,7 @@
 /.vim/bundle
 /.vim/plugged
 /.virtualenvs
+/.yarn
 /.CFUserTextEncoding
 /.Trash
 /blog
