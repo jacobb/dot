@@ -17,7 +17,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
-Plug 'hdima/python-syntax'
+Plug 'vim-python/python-syntax'
 Plug 'othree/html5.vim'
 Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
@@ -179,3 +179,6 @@ nnoremap <leader>f :FZF<cr>
 
 let g:jsx_ext_required = 0
 let g:riv_fold_auto_update = 0
+
+let g:ale_fixers = ['black']
+let g:python_highlight_all = 1

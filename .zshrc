@@ -49,6 +49,7 @@ alias cl='super_clear'
 alias diepyc='find . -name "*.pyc" -exec rm -rf {} \;'
 alias flushdns='sudo killall -INFO mDNSResponder'
 alias ymp3='youtube-dl --audio-quality=300k --extract-audio --audio-format=mp3'
+alias dc='docker-compose'
 
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*?.pyc' \
 zstyle ':completion::complete:*:vim:*' ignored-patterns '*.pyc'
@@ -64,7 +65,7 @@ eval "$(pyenv virtualenv-init -)"
 alias pa='pyenv activate'
 
 # Prompt
-source scripts/prompt.sh
+source ~/scripts/prompt.sh
 
 
 # use emacs terminal control because muscle memory
@@ -88,3 +89,5 @@ if [ $commands[kubectl] ]; then
 fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
