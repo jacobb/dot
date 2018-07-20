@@ -54,6 +54,7 @@
 /.vim/plugged
 /.virtualenvs
 /.yarn
+/.yarnrc
 /.CFUserTextEncoding
 /.Trash
 /blog
