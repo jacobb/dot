@@ -182,3 +182,5 @@ let g:riv_fold_auto_update = 0
 
 let g:ale_fixers = ['black']
 let g:python_highlight_all = 1
+
+nmap <silent> <Leader>m :t.<bar>s/./-/g<cr>
