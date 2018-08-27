@@ -94,6 +94,10 @@ macro pager \css "<exit><save-message>+$my_starred<enter>"
 
 # Open HTML Attachments
 macro index,pager H <view-attachments>/html<enter><view-mailcap><exit>
+bind  attach  <return>  view-mailcap
+alternative_order text/plain text/html
+unauto_view *
+auto_view text/html
 
 set mailcap_path = ~/.mutt/mailcap
 auto_view text/html                                   # view html automatically

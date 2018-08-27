@@ -1,5 +1,8 @@
-text/html; open -a "/Applications/Firefox.app" %s & sleep 3; copiousoutput; description=HTML Text; nametemplate=%s.html; copiousoutput;
+text/html; open -a "/Applications/Firefox.app" %s & sleep 3; description=HTML Text; nametemplate=%s.html;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+text/calendar; open -a "/Applications/Calendar.app" %s
+application/calendar; open -a "/Applications/Calendar.app" %s
 
 # MS Word documents
 application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
