@@ -68,6 +68,7 @@
 /Downloads
 /Dropbox
 /VirtualBox VMs/
+/.zcompdump
 
 /Library/*
 !/Library/Application\ Support
@@ -88,3 +89,4 @@
 /tbla
 /Applications (Parallels)/
 /Parallels
+
