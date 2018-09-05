@@ -129,8 +129,6 @@ set backupdir=~/.vim/backup
 " Force backups to be copied from original, not renamed
 set backupcopy=yes
 
-map <Leader>r :SyntasticCheck<CR>
-
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
 nmap <silent> <leader>sv :so $MYVIMRC<cr>

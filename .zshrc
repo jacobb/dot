@@ -24,6 +24,9 @@ bindkey "^?" backward-delete-char
 bindkey "^W" backward-kill-word
 bindkey '^e' end-of-line
 bindkey '^a' beginning-of-line
+bindkey -e
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
 
 # number of lines kept in history
 export HISTSIZE=100000
