@@ -92,6 +92,9 @@ macro pager \csr "<exit><save-message>+$my_receipts<enter>"
 macro index \css "<save-message>+$my_starred<enter>"
 macro pager \css "<exit><save-message>+$my_starred<enter>"
 
+macro index \csw "<save-message>+$my_work<enter>"
+macro pager \csw "<exit><save-message>+$my_work<enter>"
+
 # Open HTML Attachments
 macro index,pager H <view-attachments>/html<enter><view-mailcap><exit>
 bind  attach  <return>  view-mailcap
