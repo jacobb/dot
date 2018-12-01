@@ -10,6 +10,7 @@
 /.cache
 /bin/libphutil
 /bin/helm
+/.boto
 /.config/cmus
 /.config/direnv/allow
 /.config/configstore
@@ -22,12 +23,15 @@
 /.fzf
 /.config/gcloud/logs
 /.gem
+/.gitlab-runner
+/.gsutil
 /google-cloud-sdk
-/.netrc
-/.heroku
+/.helm
 /.history
+/.heroku
 /.ipython
 /.lesshst
+/.netrc
 /.node-gyp
 /.npm
 /.offlineimap
@@ -83,10 +87,10 @@
 /Sites
 /blog
 /decks
+/lib
 /podcasts
 /src
 /retired_src
 /tbla
 /Applications (Parallels)/
 /Parallels
-
