@@ -15,6 +15,8 @@ export CLICOLOR='Yes'
 export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.git'
 export PYTHONUNBUFFERED=true
 export CLASSPATH=/Automation/lib/testng-6.11.jar:/Automation/lib/*:.
+export GDAL_LIBRARY_PATH="/Library/Frameworks/GDAL.framework/Versions/1.11/GDAL"
+export GEOS_LIBRARY_PATH="/Library/Frameworks/GEOS.framework/Versions/3/GEOS"
 
 # bindkey "^[[3~" delete-char
 # bindkey "^[3;5-" delete-char
@@ -94,3 +96,9 @@ fi
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jacob/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jacob/lib/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jacob/lib/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jacob/lib/google-cloud-sdk/completion.zsh.inc'; fi
