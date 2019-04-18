@@ -4,6 +4,11 @@ export EDITOR='vim'
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/jacob/bin:$PATH"
+export PATH="/Users/jacob/go/bin:$PATH"
+export PATH="/usr/local/opt/go/libexec/bin:$PATH"
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export KUBECONFIG=$KUBECONFIG:$HOME/.kube/personal:$HOME/.kube/config
 
 # FLAGS
 export CFLAGS="-I$(brew --prefix openssl)/include"
