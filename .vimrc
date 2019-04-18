@@ -178,5 +178,6 @@ nnoremap <leader>f :FZF<cr>
 let g:jsx_ext_required = 0
 let g:riv_fold_auto_update = 0
 
-let g:ale_fixers = ['black']
+let g:ale_fixers = {'python': ['black'], 'go': ['gofmt']}
 let g:python_highlight_all = 1
+let g:go_highlight_all = 1
