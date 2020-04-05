@@ -1,4 +1,5 @@
 " Vundle Stuff
+set encoding=UTF-8
 set nocompatible
 filetype off
 call plug#begin('~/.vim/plugged')
@@ -23,6 +24,7 @@ Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'mtth/scratch.vim'
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
