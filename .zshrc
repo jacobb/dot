@@ -6,6 +6,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/jacob/bin:$PATH"
 export PATH="/Users/jacob/go/bin:$PATH"
 export PATH="/usr/local/opt/go/libexec/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 
@@ -22,9 +23,6 @@ export LSCOLORS=''
 export CLICOLOR='Yes'
 export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.git'
 export PYTHONUNBUFFERED=true
-export CLASSPATH=/Automation/lib/testng-6.11.jar:/Automation/lib/*:.
-export GDAL_LIBRARY_PATH="/Library/Frameworks/GDAL.framework/Versions/1.11/GDAL"
-export GEOS_LIBRARY_PATH="/Library/Frameworks/GEOS.framework/Versions/3/GEOS"
 
 # bindkey "^[[3~" delete-char
 # bindkey "^[3;5-" delete-char
@@ -84,7 +82,7 @@ if which pyenv-virtualenv-init > /dev/null; then
 fi
 
 alias pa='pyenv activate'
-pyenv shell 3.7.6 2.7.14
+pyenv global 3.7.6 2.7.14
 
 # Prompt
 source ~/scripts/prompt.sh
@@ -98,22 +96,15 @@ export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
-
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(direnv hook zsh)"
-
-function colors() { for C in {0..255}; do echo -en "\e[${C}m$C " ; done }
-eval "$(thefuck --alias)"
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+
 if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
 fi
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jacob/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jacob/lib/google-cloud-sdk/path.zsh.inc'; fi
 
