@@ -17,7 +17,7 @@ set smtp_pass = `getpass fastmail`
 
 # Folder names
 set my_inbox="INBOX"
-set my_archive="Archive"
+set my_archive="archive"
 set my_drafts="drafts"
 set my_sent="sent"
 set my_spam="Junk Mail"

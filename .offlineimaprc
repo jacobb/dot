@@ -9,31 +9,15 @@ remoterepository = Remote
 [Repository Local]
 type = Maildir
 localfolders = ~/Mail
-nametrans = lambda folder: {
-                            'sent': 'INBOX.Sent Items',
-                            'drafts': 'INBOX.Drafts',
-                            'Trash': 'INBOX.Trash',
-                            'Archive': 'INBOX.Archive',
-                            'receipts': 'INBOX.receipts',
-                            'work': 'INBOX.work',
-                            'starred': 'INBOX.starred',
-                            }.get(folder, folder)
 
 [Repository Remote]
 type = IMAP
-remotehost = mail.messagingengine.com
+remotehost = imap.fastmail.com
+cert_fingerprint = EDD7EE170863AFD2BBFBEDE31A6F9354C99EE0B0
 remoteusereval = get_imap_email()
 remotepasseval = get_imap_password()
 remoteport = 993
 ssl = on
 
-cert_fingerprint = BDDC89DAE48629898AF13421D7844F806CA33943
 holdconnectionopen = yes
-nametrans = lambda folder: {
-                            'INBOX.Sent Items': 'sent',
-                            'INBOX.Drafts': 'drafts',
-                            'INBOX.work': 'work',
-                            'INBOX.Trash': 'Trash',
-                            'INBOX.receipts': 'receipts',
-                            'INBOX.starred': 'starred',
-                            'INBOX.Archive': 'Archive',}.get(folder, folder)
+maxconnections = 1

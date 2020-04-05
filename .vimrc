@@ -28,6 +28,7 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'w0rp/ale'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 syntax on
@@ -86,6 +87,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+set nobackup
+set nowritebackup
 
 nnoremap <F3> :set hlsearch!<CR>
 
@@ -178,6 +182,8 @@ nnoremap <leader>f :FZF<cr>
 let g:jsx_ext_required = 0
 let g:riv_fold_auto_update = 0
 
-let g:ale_fixers = {'python': ['black'], 'go': ['gofmt']}
+let g:ale_fixers = {'python': ['black'], 'go': ['gofmt'], 'javascript': ['eslint']}
 let g:python_highlight_all = 1
 let g:go_highlight_all = 1
+
+let g:rainbow_active = 1

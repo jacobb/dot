@@ -8,7 +8,10 @@ export PATH="/Users/jacob/go/bin:$PATH"
 export PATH="/usr/local/opt/go/libexec/bin:$PATH"
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
-export KUBECONFIG=$KUBECONFIG:$HOME/.kube/personal:$HOME/.kube/config
+
+export KUBECONFIG=$HOME/.kube/personal:$HOME/.kube/config
+export TILLER_NAMESPACE=tiller
+export AWS_SDK_LOAD_CONFIG=1
 
 # FLAGS
 export CFLAGS="-I$(brew --prefix openssl)/include"
@@ -35,10 +38,14 @@ bindkey -e
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word
 
-# number of lines kept in history
+# History settings
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
-export HISTFILE=~/.history
+setopt EXTENDED_HISTORY       # include timestamps/etc in history
+setopt APPEND_HISTORY         # append (instead of overwriting) history
+setopt SHARE_HISTORY          # share history between shells
+
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
 # functions
@@ -67,12 +74,17 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LSCOLORS}
 
 # virtualenv
 #
-export WORKON_HOME=$HOME/.virtualenvs
-# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+if which pyenv-virtualenv-init > /dev/null; then
+    eval "$(eval "$(pyenv init -)"; pyenv virtualenv-init -)"
+fi
+
 alias pa='pyenv activate'
+pyenv shell 3.7.6 2.7.14
 
 # Prompt
 source ~/scripts/prompt.sh
