@@ -36,7 +36,9 @@
 /.netrc
 /.node-gyp
 /.npm
-/.offlineimap
+/.op
+/.mbsync
+/.mbsyncrc
 /.oracle_jre_usage
 /papers
 /.NERDTreeBookmarks

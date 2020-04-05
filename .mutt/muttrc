@@ -14,25 +14,39 @@ set smtp_url="smtp://$my_user@$my_smtp_server:587/"
 set ssl_starttls = yes
 set smtp_pass = `getpass fastmail`
 
+ignore *
+unignore from: to: cc: bcc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: bcc: date: subject:
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+
+# Etc Options
+set mail_check = 0
+set wait_key = no
+set quit
+set delete
+set help = no
+unset move
+
 
 # Folder names
 set my_inbox="INBOX"
 set my_archive="archive"
-set my_drafts="drafts"
-set my_sent="sent"
-set my_spam="Junk Mail"
+set my_drafts="Drafts"
+set my_sent="Sent"
+set my_spam="Spam"
 set my_trash="Trash"
 set my_receipts="receipts"
 set my_starred="starred"
 set my_work="work"
 
 
-
 # Spool (inbox)
 set spoolfile = "+$my_inbox"
 # Draft folder
 set postponed = "+$my_drafts"
-# Save sent mails to the Sent folder
+# Fastmail auto-saves sent files already
 unset record
 set trash = "=$my_trash"
 
@@ -43,6 +57,7 @@ mailboxes   +$my_inbox \
             +$my_drafts \
             +$my_trash \
             +$my_receipts \
+            +$my_spam \
             +$my_starred \
 
 # activate TLS if available on the server
@@ -53,24 +68,33 @@ set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/messages
 set certificate_file=~/.mutt/certificates
 
-
 set include = yes
+set fcc_attach
+set text_flowed
 # Organize into threads, sorting the threads by sender
 set sort=threads
 set sort_aux=from
 
 # Macros -----------------------------------------------
 
+
 # Navigation
+# I have no idea why I have to do this, but it works
+set my_sent_m = "=$my_sent"
+set my_spam_m = "=$my_spam"
+
+bind index,pager g noop
 macro index,pager gl "<change-folder>"
 macro index,pager gi "<change-folder>=$my_inbox<enter>" "Go to inbox"
 macro index,pager ga "<change-folder>=$my_archive<enter>" "Go to all mail"
 macro index,pager gd "<change-folder>=$my_drafts<enter>" "Go to drafts"
 macro index,pager gt "<change-folder>=$my_trash<enter>" "Go to trash"
-macro index,pager ge "<change-folder>=$my_sent<enter>" "Go to sent mail"
 macro index,pager gs "<change-folder>=$my_starred<enter>" "Go to starred mail"
 macro index,pager gw "<change-folder>=$my_work<enter>" "Go to work mail"
 macro index,pager gr "<change-folder>=$my_receipts<enter>" "Go to receipts"
+
+macro index,pager ge "<change-folder>=$my_sent<Enter>" "Go to sent mail"
+macro index,pager gj "<change-folder>$my_spam_m<enter>" "Go to Spam"
 
 macro index \Csr "<save-message>+$my_receipts<enter>"
 macro pager \Csr "<exit><save-message>+$my_receipts<enter>"
@@ -144,8 +168,8 @@ bind index <space>  collapse-thread
 macro index \cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 # Sync email
-macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
-macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+macro index O "<shell-escape>syncmail<enter>"           "run mbsync to sync all mail"
+macro index o "<shell-escape>mbsync -n quickmail<enter>" "run mbsync to sync inbox"
 
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
@@ -163,6 +187,7 @@ set pager_stop             # don't go to next message automatically
 set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
+set sleep_time = 0
 
 # Pager Key Bindings ---------------------------------
 bind pager k  previous-line

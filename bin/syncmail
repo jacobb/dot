@@ -1,0 +1,6 @@
+#!/bin/sh
+mbsync -a
+cd /Users/jacob/Mail
+git aa .
+git ci -am "Mail Sync on $(date)"
+exit 0
