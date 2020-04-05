@@ -78,10 +78,7 @@
 /VirtualBox VMs/
 /.zcompdump
 
-/Library/*
-!/Library/Application\ Support
-/Library/Application\ Support/*
-!/Library/Application\ Support/Karabiner
+/Library
 
 /iCloud Drive (Archive)
 /Mail
