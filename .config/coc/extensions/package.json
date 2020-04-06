@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "coc-python": ">=1.2.9",
+    "coc-tailwindcss": ">=0.5.0"
+  }
+}

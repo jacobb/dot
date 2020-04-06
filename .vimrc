@@ -1,63 +1,65 @@
-" Vundle Stuff
+ " Vundle Stuff
 set encoding=UTF-8
 set nocompatible
 filetype off
 call plug#begin('~/.vim/plugged')
-Plug 'gmarik/Vundle.vim'
+" proven
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf'
+" fzf.vim also also adds ag support
+Plug 'junegunn/fzf.vim'
 
-Plug 'hynek/vim-python-pep8-indent'
+" language specific
 Plug 'scrooloose/nerdtree'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-
+Plug 'hynek/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
-Plug 'othree/html5.vim'
-Plug 'mileszs/ack.vim'
-Plug 'rking/ag.vim'
-Plug 'derekwyatt/vim-scala'
-Plug 'mtth/scratch.vim'
-Plug 'ryanoasis/vim-devicons'
+Plug 'morhetz/gruvbox'
 
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
+" note: Dockerfile should be in baes vim by 8.3, remove when that happens
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'w0rp/ale'
-Plug 'luochen1990/rainbow'
+
+" pretty things
+Plug 'vim-airline/vim-airline'
+Plug 'ryanoasis/vim-devicons'
+" required for tomorrow theme
+Plug 'vim-airline/vim-airline-themes'
+
+" under review
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 syntax on
 filetype plugin indent on
-
+let mapleader = " "
 set wildignore+=*/bundled/*,bower_components/*,node_modules/*,htmlcov/*,tmp/*,*.so,*.swp,*.zip,*.pyc,*.coverage
 
-let mapleader = " "
-" Enable file type detection and do language-dependent indenting.
+" pretty
+set gcr=n:blinkon0  " no blinking cursor
+set noerrorbells
+
 set nofoldenable " disable folding"
 
 " Show line numbers
 set number
-set colorcolumn=80
+set colorcolumn=88
 
-" Allow hidden buffers, don't limit to 1 file per window/split
+" Allow hidden buffers, don't limit to 1 file per window
 set hidden
 set showcmd
+set wildmenu
 
 "---- Color Settings ----
-:color Tomorrow-Night
-:set t_Co=256 " 256 colors
-:set background=dark
-set guifont=Monospace\ 9
-set cursorline        " Highlight current line
+colorscheme gruvbox
+set termguicolors
+let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 set backspace=indent,eol,start
+let g:airline#extensions#ale#enabled = 1
+let g:airline_theme='base16_tomorrow'
+set cursorline
 
 "---- Indent Settings ----
 set cindent
@@ -85,10 +87,10 @@ noremap <Leader>h :split^M^W^W<cr>
 nnoremap <leader><leader> <c-^>
 " let g:ctrlp_map = '<leader>f'
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 set nobackup
 set nowritebackup
@@ -97,11 +99,6 @@ nnoremap <F3> :set hlsearch!<CR>
 
 " Trailing Whitespace
 highlight extrawhitespace ctermbg=red guibg=red
-augroup filetype_html
-    autocmd!
-    autocmd colorscheme * highlight extrawhitespace ctermbg=red guibg=red
-    autocmd BufEnter *html map <F8> :setfiletype htmldjango<CR>
-augroup END
 
 match extrawhitespace /\s\+$/
 
@@ -122,70 +119,8 @@ map! <F4> :call StripTrailingWhitespace()
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeRespectWildIgnore=1
 
-" airline
-set laststatus=2
-let g:airline_theme='tomorrow'
-
-" backup stuff
-" Store all swap files together, to prevent synching of swp and backup~ files in Dropbox
-" Don't forget to mkdir ~/.vim/swap & backup!!!
-set directory^=$HOME/.vim/swap/
-set backupdir=~/.vim/backup
-
-" Force backups to be copied from original, not renamed
-set backupcopy=yes
-
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<cr>
-nmap <silent> <leader>sv :so $MYVIMRC<cr>
-
-
-set gcr=n:blinkon0
-highlight Cursor guifg=white guibg=black
-set noerrorbells
-
 map <F5> :setlocal spell! spelllang=en_us<CR>
 
-set history=1000
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Selecta Mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Run a given vim command on the results of fuzzy selecting from a given shell
-" command. See usage below.
-function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
-    redraw!
-    return
-  endtry
-  redraw!
-  exec a:vim_command . " " . selection
-endfunction
-
-function! FindWithWildignore()
-  let excluding=""
-  for entry in split(&wildignore,",")
-    let excluding.= (match(entry,'*/*') ? " ! -ipath \'" : " ! -iname \'") . entry . "\' "
-  endfor
-  return "find * -type f \\\( " . excluding . " \\\)"
-endfunction
-
-function! SelectaFile(path)
-  call SelectaCommand(FindWithWildignore(), "", ":e")
-endfunction
-
-" nnoremap <leader>f :call SelectaFile(".")<cr>
-nnoremap <leader>f :FZF<cr>
-
-let g:jsx_ext_required = 0
-let g:riv_fold_auto_update = 0
-
-let g:ale_fixers = {'python': ['black'], 'go': ['gofmt'], 'javascript': ['eslint']}
-let g:python_highlight_all = 1
-let g:go_highlight_all = 1
-
-let g:rainbow_active = 1
+nnoremap <leader>f :GFiles .<cr>
+nnoremap <leader>gd :ALEGoToDefinition<CR>
+nnoremap <leader>r :Ag<CR>
