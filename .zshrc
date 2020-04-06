@@ -12,8 +12,8 @@ export TILLER_NAMESPACE=tiller
 export AWS_SDK_LOAD_CONFIG=1
 
 # FLAGS
-export CFLAGS="-I$(brew --prefix openssl)/include"
-export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 
 # bin options
 export LS_OPTIONS='--color=auto'
@@ -43,19 +43,32 @@ setopt EXTENDED_HISTORY       # include timestamps/etc in history
 setopt APPEND_HISTORY         # append (instead of overwriting) history
 setopt SHARE_HISTORY          # share history between shells
 
-if which pyenv-virtualenv-init > /dev/null; then
-    eval "$(eval "$(pyenv init -)"; pyenv virtualenv-init -)"
-    pyenv global 3.7.6 2.7.14
+
+# Lazy load pyenv
+export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
+if ! type pyenv > /dev/null && [ -f "${PYENV_ROOT}/bin/pyenv" ]; then
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+fi
+if type pyenv > /dev/null; then
+    export PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
+    function pyenv() {
+        unset -f pyenv
+        eval "$(command pyenv init -)"
+        eval "$(command pyenv virtualenv-init -)"
+        pyenv $@
+    }
 fi
 
 # autocompletes
-# autoload -U +X compinit && compinit
-# autoload -U +X bashcompinit && bashcompinit
-if [ $commands[kubectl] ]; then
-    source <(kubectl completion zsh)
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
 fi
+# autoload -U +X bashcompinit && bashcompinit
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # The next line enables shell command completion for gcloud.
 # if [ -f '/Users/jacob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jacob/google-cloud-sdk/completion.zsh.inc'; fi
 
