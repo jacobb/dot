@@ -8,12 +8,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf'
-" fzf.vim also also adds ag support
+Plug 'scrooloose/nerdtree'
+" fzf.vim also adds ag support
 Plug 'junegunn/fzf.vim'
 
 " language specific
-Plug 'scrooloose/nerdtree'
-Plug 'hynek/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
 
 " note: Dockerfile should be in baes vim by 8.3, remove when that happens
@@ -22,9 +22,10 @@ Plug 'ekalinin/Dockerfile.vim'
 " pretty things
 " Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-airline/vim-airline-themes'
 
+" themes
 Plug 'morhetz/gruvbox'
 Plug 'jacoborus/tender.vim'
 
@@ -65,9 +66,41 @@ set background=dark
 set backspace=indent,eol,start
 
 " status config
-let g:airline_theme='tenderplus'
 set laststatus=2
-let g:lightline = { 'colorscheme': 'tender' }
+" let g:lightline = { 'colorscheme': 'tender' }
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_infos = "\uf129"
+let g:lightline#ale#indicator_warnings = "\uf071  "
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
+" let g:lightline.component_type = {
+"       \     'linter_checking': 'right',
+"       \     'linter_infos': 'right',
+"       \     'linter_warnings': 'warning',
+"       \     'linter_errors': 'error',
+"       \     'linter_ok': 'right',
+"       \ }
+
+let g:lightline = {
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ],
+            \ 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]],
+            \ },
+            \ 'component': {
+            \   'helloworld': 'Hello, world!'
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' },
+            \ 'colorscheme': 'tender',
+            \ 'component_expand': {
+            \  'linter_checking': 'lightline#ale#checking',
+            \  'linter_infos': 'lightline#ale#infos',
+            \  'linter_warnings': 'lightline#ale#warnings',
+            \  'linter_errors': 'lightline#ale#errors',
+            \  'linter_ok': 'lightline#ale#ok',
+            \ },
+            \ }
 set cursorline
 
 "---- Indent Settings ----
@@ -123,6 +156,8 @@ map <F5> :setlocal spell! spelllang=en_us<CR>
 nnoremap <leader>f :GFiles .<cr>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
 nnoremap <leader>r :Ag<CR>
+nnoremap <leader>ne :lne<CR>
+nnoremap <leader>pe :pe<CR>
 
 " sets up line/global search+replace of highlighted word
 nnoremap <leader>s :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
