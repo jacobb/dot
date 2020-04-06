@@ -87,7 +87,6 @@ pyenv global 3.7.6 2.7.14
 # Prompt
 source ~/scripts/prompt.sh
 
-
 # use emacs terminal control because muscle memory
 bindkey -e
 # disable XON so i can use ctrl+s in applications
@@ -98,15 +97,12 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
 fi
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jacob/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jacob/lib/google-cloud-sdk/path.zsh.inc'; fi
-
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/jacob/lib/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jacob/lib/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/jacob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jacob/google-cloud-sdk/completion.zsh.inc'; fi

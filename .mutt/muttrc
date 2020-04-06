@@ -145,7 +145,7 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 
 
 # Colors ---------------------------------------------
-source ~/.mutt/kindly.muttrc
+source ~/.mutt/dracula.muttrc
 
 # Index View Options ---------------------------------
 set date_format = "%m/%d"
