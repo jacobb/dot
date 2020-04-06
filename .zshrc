@@ -97,12 +97,11 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
-source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jacob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jacob/google-cloud-sdk/completion.zsh.inc'; fi
