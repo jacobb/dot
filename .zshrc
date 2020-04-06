@@ -70,8 +70,7 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # The next line enables shell command completion for gcloud.
-# if [ -f '/Users/jacob/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jacob/google-cloud-sdk/completion.zsh.inc'; fi
 
 # includes
-source $HOME/scripts/aliases.sh
-source $HOME/scripts/prompt.sh
+source $HOME/.zsh/aliases.sh
+source $HOME/.zsh/prompt.sh

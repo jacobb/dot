@@ -7,6 +7,11 @@ function super_clear() {
     clear
 }
 
+function load_google_trash() {
+    source <(kubectl completion zsh)
+    source /Users/jacob/google-cloud-sdk/completion.zsh.inc
+}
+
 # aliases
 alias l='ls -l'
 alias ll='ls -la'
@@ -17,4 +22,4 @@ alias flushdns='sudo killall -INFO mDNSResponder'
 alias ymp3='youtube-dl --audio-quality=300k --extract-audio --audio-format=mp3'
 alias dc='docker-compose'
 alias pa='pyenv activate'
-alias kc='source <(kubectl completion zsh)'
+alias kc='load_google_trash'
