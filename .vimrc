@@ -41,6 +41,7 @@ set wildignore+=*/bundled/*,bower_components/*,node_modules/*,htmlcov/*,tmp/*,*.
 " pretty
 set gcr=n:blinkon0  " no blinking cursor
 set noerrorbells
+set complete+=d
 
 set nofoldenable " disable folding"
 
@@ -52,6 +53,9 @@ set colorcolumn=88
 set hidden
 set showcmd
 set wildmenu
+set wildmode=full
+set incsearch
+set noswapfile
 
 "---- Color Settings ----
 colorscheme tender
@@ -73,6 +77,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+
+cnoremap <expr> <C-n> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>/<C-r>/" : "n"
+cnoremap <expr> <C-p> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>?<C-r>/" : "p"
 
 set splitbelow splitright
 if &diff
@@ -107,19 +114,6 @@ highlight extrawhitespace ctermbg=red guibg=red
 
 match extrawhitespace /\s\+$/
 
-function! StripTrailingWhitespace()
-  normal mZ
-  let l:chars = col("$")
-  %s/\s\+$//e
-  if (line("'Z") != line(".")) || (l:chars != col("$"))
-    echo "Trailing whitespace stripped\n"
-  endif
-  normal `Z
-endfunction
-
-map <F4> :call StripTrailingWhitespace()
-map! <F4> :call StripTrailingWhitespace()
-
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeRespectWildIgnore=1
@@ -129,3 +123,7 @@ map <F5> :setlocal spell! spelllang=en_us<CR>
 nnoremap <leader>f :GFiles .<cr>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
 nnoremap <leader>r :Ag<CR>
+
+" sets up line/global search+replace of highlighted word
+nnoremap <leader>s :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <leader>%       :%s/\<<C-r>=expand("<cword>")<CR>\>/
