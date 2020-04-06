@@ -138,6 +138,7 @@ color sidebar_new color221 color233
 set date_format="%a, %b %d %H:%M"
 set index_format="%4C %Z %D %-16.16L  %s %* %c"
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
