@@ -58,7 +58,6 @@
 /.vagrant.d/
 /.viminfo
 /.vim/plugin
-/.vim/bundle
 /.vim/plugged
 /.virtualenvs
 /.yarn

@@ -15,16 +15,18 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
-Plug 'morhetz/gruvbox'
 
 " note: Dockerfile should be in baes vim by 8.3, remove when that happens
 Plug 'ekalinin/Dockerfile.vim'
 
 " pretty things
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
-" required for tomorrow theme
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'morhetz/gruvbox'
+Plug 'jacoborus/tender.vim'
 
 " under review
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -52,13 +54,16 @@ set showcmd
 set wildmenu
 
 "---- Color Settings ----
-colorscheme gruvbox
+colorscheme tender
 set termguicolors
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 set backspace=indent,eol,start
-let g:airline#extensions#ale#enabled = 1
-let g:airline_theme='base16_tomorrow'
+
+" status config
+let g:airline_theme='tenderplus'
+set laststatus=2
+let g:lightline = { 'colorscheme': 'tender' }
 set cursorline
 
 "---- Indent Settings ----
