@@ -120,7 +120,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "/", function()
   win:setFrame(f, 0)
 end)
 
-hs.hotkey.bind({"ctrl"}, "Space", function()
+hs.hotkey.bind({"ctrl"}, "m", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
