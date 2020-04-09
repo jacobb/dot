@@ -118,8 +118,9 @@ let NERDTreeRespectWildIgnore=1
 
 map <F5> :setlocal spell! spelllang=en_us<CR>
 
-nnoremap <leader>f :GFiles .<cr>
+nnoremap <leader>f :Files .<cr>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
+nnoremap <leader>F :ALEFix<CR>
 nnoremap <leader>r :Ag<CR>
 nnoremap <leader>ne :lne<CR>
 nnoremap <leader>pe :pe<CR>
