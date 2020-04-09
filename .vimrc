@@ -15,6 +15,7 @@ Plug 'junegunn/fzf.vim'
 " language specific
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
+Plug 'mrk21/yaml-vim'
 
 " note: Dockerfile should be in baes vim by 8.3, remove when that happens
 Plug 'ekalinin/Dockerfile.vim'
