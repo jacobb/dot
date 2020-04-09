@@ -11,8 +11,8 @@ let g:lightline#ale#indicator_ok = "🐶 "
 
 let g:lightline = {
             \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'readonly', 'filename', 'modified' ] ],
+            \   'left': [ [ 'mode', 'paste', 'mymod' ],
+            \             [ 'readonly', 'filename'] ],
             \ 'right': [[
             \ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok',
             \ 'percent', 'fileformat', 'fileencoding', 'filetype'
@@ -21,7 +21,7 @@ let g:lightline = {
             \ 'component_type': {
             \   'linter_warnings': 'warning',
             \   'linter_errors': 'error',
-            \   'modified': 'warning',
+            \   'mymod': 'error',
             \ },
             \ 'separator': { 'left': '', 'right': '' },
             \ 'subseparator': { 'left': '', 'right': '' },
@@ -32,10 +32,12 @@ let g:lightline = {
             \  'linter_warnings': 'lightline#ale#warnings',
             \  'linter_errors': 'lightline#ale#errors',
             \  'linter_ok': 'lightline#ale#ok',
+            \  'mymod': 'MyModified',
             \ },
             \ 'component_function': {
-            \   'filetype': 'MyFiletype',
-            \   'fileformat': 'MyFileformat',
+            \  'filename': 'FilenameForLightline',
+            \  'filetype': 'MyFiletype',
+            \  'fileformat': 'MyFileformat',
             \ },
             \ }
 function! MyFiletype()
@@ -43,4 +45,13 @@ function! MyFiletype()
 endfunction
 function! MyFileformat()
     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+" Show full path of filename
+function! FilenameForLightline()
+    return expand('%')
+endfunction
+
+function! MyModified()
+    return &mod ? "+" : ''
 endfunction
