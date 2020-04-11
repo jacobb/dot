@@ -9,6 +9,7 @@ Plug 'tpope/vim-repeat'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf'
 Plug 'scrooloose/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
 " fzf.vim also adds ag support
 Plug 'junegunn/fzf.vim'
 
@@ -29,6 +30,8 @@ Plug 'ryanoasis/vim-devicons'
 " themes
 Plug 'morhetz/gruvbox'
 Plug 'jacoborus/tender.vim'
+
+Plug 'blueyed/vim-diminactive'
 
 " under review
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -80,16 +83,6 @@ cnoremap <expr> <C-n> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>/<C-r>
 cnoremap <expr> <C-p> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>?<C-r>/" : "p"
 
 set splitbelow splitright
-if &diff
-else
-    set winwidth=115
-    " We have to have a winheight bigger than we want to set winminheight. But if
-    " " we set winheight to be huge before winminheight, the winminheight set will
-    " " fail.
-    set winheight=10
-    set winminheight=8
-    set winheight=999
-endif
 
 " Vertical and horizontal split then hop to a new buffer
 noremap <Leader>v :vsp^M^W^W<cr>
