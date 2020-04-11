@@ -1,0 +1,12 @@
+#!/usr/local/bin/python3
+import json
+import os
+
+swin_pipe = os.popen("osascript /Users/jacob/bin/get-music.applescript")
+try:
+    swin_str = swin_pipe.read()
+    swin = json.loads(swin_str)
+except ValueError:
+    swin = {}
+
+print(json.dumps(swin))
