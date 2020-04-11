@@ -54,6 +54,7 @@
 /.spectrum
 /.ssh
 /.tendril
+/.tmux/plugins
 /.tmp
 /.vagrant.d/
 /.viminfo
