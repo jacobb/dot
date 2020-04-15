@@ -8,6 +8,7 @@ export GOROOT=/usr/local/opt/go/libexec
 export KUBECONFIG=$HOME/.kube/personal:$HOME/.kube/config
 export TILLER_NAMESPACE=tiller
 export AWS_SDK_LOAD_CONFIG=1
+export DOCKER_BUILDKIT=1
 
 # FLAGS
 export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
@@ -40,6 +41,7 @@ export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY       # include timestamps/etc in history
 setopt APPEND_HISTORY         # append (instead of overwriting) history
 setopt SHARE_HISTORY          # share history between shells
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 
 # Lazy load pyenv
