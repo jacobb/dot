@@ -1,6 +1,7 @@
 #!/usr/local/bin/python3
 import json
 import os
+import sys
 
 swin_pipe = os.popen("osascript /Users/jacob/bin/get-music.applescript")
 try:
@@ -9,4 +10,4 @@ try:
 except ValueError:
     swin = {}
 
-print(json.dumps(swin))
+exit(json.dumps(swin))
