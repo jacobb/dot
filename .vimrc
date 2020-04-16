@@ -22,7 +22,6 @@ Plug 'mrk21/yaml-vim'
 Plug 'ekalinin/Dockerfile.vim'
 
 " pretty things
-" Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'ryanoasis/vim-devicons'
@@ -31,10 +30,12 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
 Plug 'jacoborus/tender.vim'
 
-Plug 'blueyed/vim-diminactive'
 
 " under review
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'blueyed/vim-diminactive'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
