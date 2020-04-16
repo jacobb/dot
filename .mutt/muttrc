@@ -198,6 +198,6 @@ bind pager R  group-reply
 # View attachments properly.
 bind attach <return> view-mailcap
 
-set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | grep @ | sed -e 's/TOKEN/\t/g'"
 bind editor <Tab> complete-query
 bind editor ^T    complete
