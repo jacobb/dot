@@ -8,9 +8,9 @@ function super_clear() {
 }
 
 function load_google_trash() {
-    pyenv shell 3.6.4 2.7.14
+    # pyenv shell 3.6.4 2.7.14
     source <(kubectl completion zsh)
-    source /Users/jacob/lib/google-cloud-sdk/completion.zsh.inc
+    source /usr/local/lib/google-cloud-sdk/completion.zsh.inc
     export PATH=$PATH:$HOME/lib/google-cloud-sdk/bin
 }
 

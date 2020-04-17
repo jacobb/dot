@@ -2,9 +2,10 @@ export EDITOR='vim'
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Users/jacob/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
+export PATH="/usr/local/lib/google-cloud-sdk/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="/Users/jacob/Library/Python/3.7/bin:$PATH"
+
 export KUBECONFIG=$HOME/.kube/personal:$HOME/.kube/config
 export TILLER_NAMESPACE=tiller
 export AWS_SDK_LOAD_CONFIG=1
