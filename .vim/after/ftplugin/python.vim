@@ -1,6 +1,6 @@
 let g:python_highlight_all = 1
 let b:ale_fixers = {'python': ['black']}
-let b:ale_linters = {'python': ['pycodestyle', 'pyflakes']}
+let b:ale_linters = {'python': ['flake8']}
 let b:ale_completion_enabled = 1
 let g:ale_python_pyls_config = {
             \   "pyls" : {
