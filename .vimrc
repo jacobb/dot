@@ -17,6 +17,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
 Plug 'mrk21/yaml-vim'
+" vim-jsx-pretty seems to break on JS-nested props
+" Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'neoclide/vim-jsx-improve'
 
 " note: Dockerfile should be in baes vim by 8.3, remove when that happens
 Plug 'ekalinin/Dockerfile.vim'
@@ -64,7 +67,8 @@ set incsearch
 set noswapfile
 
 "---- Color Settings ----
-colorscheme tender
+" colorscheme tender
+colorscheme gruvbox
 set termguicolors
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
