@@ -1,15 +1,13 @@
- " Vundle Stuff
 set encoding=UTF-8
-set nocompatible
-filetype off
 call plug#begin('~/.vim/plugged')
 " proven
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'dense-analysis/ale'
-Plug 'junegunn/fzf'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'junegunn/fzf'
 " fzf.vim also adds ag support
 Plug 'junegunn/fzf.vim'
 
@@ -20,25 +18,20 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'ryanoasis/vim-devicons'
-
 " themes
 Plug 'morhetz/gruvbox'
-Plug 'jacoborus/tender.vim'
+" Plug 'jacoborus/tender.vim'
 
 " under review
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'blueyed/vim-diminactive'
-" Plug 'godlygeek/tabular'
-
 call plug#end()
 
-syntax on
 filetype plugin indent on
+syntax on
 let mapleader = " "
 set wildignore+=*/bundled/*,bower_components/*,node_modules/*,htmlcov/*,tmp/*,*.so,*.swp,*.zip,*.pyc,*.coverage
 
 "---- Indent Settings ----
-set cindent
 set autoindent
 set tabstop=4
 set softtabstop=4
@@ -56,20 +49,26 @@ set colorcolumn=88
 
 " Allow hidden buffers, don't limit to 1 file per window
 set hidden
+
 set showcmd
 set wildmenu
 set wildmode=full
 set incsearch
 set noswapfile
+set nobackup
+set nowritebackup
 
-" colorscheme tender
+" splintered off configs for isolated parts of code
+" lightline needs to run before gruvbox for reasons?
+runtime lightline.config.vim
 colorscheme gruvbox
+" colorscheme tender
+let g:gruvbox_contrast_dark='soft'
+
 set termguicolors
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 set backspace=indent,eol,start
-
-set splitbelow splitright
 
 " Vertical and horizontal split then hop to a new buffer
 noremap <Leader>v :vsp<cr>
@@ -80,9 +79,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-set nobackup
-set nowritebackup
+set splitbelow splitright
 
 " Trailing Whitespace
 highlight extrawhitespace ctermbg=red guibg=red
@@ -106,6 +103,3 @@ nnoremap <silent> <c-_> :set hlsearch!<cr>
 " sets up line/global search+replace of highlighted word
 nnoremap <leader>s :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>%       :%s/\<<C-r>=expand("<cword>")<CR>\>/
-
-" splintered off configs for isolated parts of code
-runtime lightline.config.vim

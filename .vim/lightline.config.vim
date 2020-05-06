@@ -25,7 +25,7 @@ let g:lightline = {
             \ },
             \ 'separator': { 'left': '', 'right': '' },
             \ 'subseparator': { 'left': '', 'right': '' },
-            \ 'colorscheme': 'tenderplus',
+            \ 'colorscheme': 'gruvbox',
             \ 'component_expand': {
             \  'linter_checking': 'lightline#ale#checking',
             \  'linter_infos': 'lightline#ale#infos',
