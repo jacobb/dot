@@ -68,6 +68,7 @@ set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/messages
 set certificate_file=~/.mutt/certificates
 
+set mark_old = no
 set include = yes
 set fcc_attach
 set text_flowed
