@@ -30,6 +30,7 @@ filetype plugin indent on
 syntax on
 let mapleader = " "
 set wildignore+=*/bundled/*,bower_components/*,node_modules/*,htmlcov/*,tmp/*,*.so,*.swp,*.zip,*.pyc,*.coverage
+runtime macros/matchit.vim
 
 "---- Indent Settings ----
 set autoindent
@@ -58,9 +59,14 @@ set noswapfile
 set nobackup
 set nowritebackup
 
+set timeoutlen=1000
+set ttimeoutlen=50
+
 " splintered off configs for isolated parts of code
 " lightline needs to run before gruvbox for reasons?
 runtime lightline.config.vim
+" runtime statusline.vim
+
 colorscheme gruvbox
 " colorscheme tender
 let g:gruvbox_contrast_dark='soft'
