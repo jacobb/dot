@@ -79,7 +79,8 @@
 /VirtualBox VMs/
 /.zcompdump
 
-/Library
+/Library/*
+!/Library/Fonts
 
 /iCloud Drive (Archive)
 /Mail
