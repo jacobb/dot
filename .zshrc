@@ -19,9 +19,9 @@ export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export LS_OPTIONS='--color=auto'
 export LSCOLORS=''
 export CLICOLOR='Yes'
-export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.git'
 export PYTHONUNBUFFERED=true
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -p ~/.ignore -g ""'
+
 
 # keybindings
 # export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/
