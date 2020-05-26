@@ -93,6 +93,7 @@ match extrawhitespace /\s\+$/
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
 
 map <F5> :setlocal spell! spelllang=en_us<CR>
