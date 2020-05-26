@@ -23,6 +23,7 @@
 /.fzf
 /.config/gcloud/logs
 /.gem
+/.git
 /.gitlab-runner
 /.gsutil
 /google-cloud-sdk
