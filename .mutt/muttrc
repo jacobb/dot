@@ -54,7 +54,6 @@ mailboxes   +$my_inbox \
             +$my_archive \
             +$my_work \
             +$my_sent \
-            +$my_drafts \
             +$my_trash \
             +$my_receipts \
             +$my_spam \

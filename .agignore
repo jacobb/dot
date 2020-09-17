@@ -7,7 +7,6 @@ tmp/
 .env
 mcfarlane/media
 /mcfarlane.web.egg-info
-/build
 /dist
 mcfarlane/proj/settings/frank.py
 .coverage

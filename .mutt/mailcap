@@ -1,3 +1,4 @@
+# text/html; open -a "Google Chrome" %s & sleep 2; test=sh -c 'test -n $DISPLAY'; needsterminal;
 text/html; open -a "/Applications/Firefox.app" %s & sleep 3; description=HTML Text; nametemplate=%s.html;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
