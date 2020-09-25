@@ -39,7 +39,6 @@ set my_spam="Spam"
 set my_trash="Trash"
 set my_receipts="receipts"
 set my_starred="starred"
-set my_work="work"
 
 
 # Spool (inbox)
@@ -52,7 +51,6 @@ set trash = "=$my_trash"
 
 mailboxes   +$my_inbox \
             +$my_archive \
-            +$my_work \
             +$my_sent \
             +$my_trash \
             +$my_receipts \
