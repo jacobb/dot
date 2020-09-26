@@ -38,6 +38,7 @@
 /.node-gyp
 /.npm
 /.op
+/old_mbsync
 /.mbsync
 /.mbsyncrc
 /.mutt/cache
