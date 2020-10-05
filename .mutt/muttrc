@@ -4,15 +4,15 @@ set editor      = "vim"
 set mbox_type   = Maildir
 
 # Account ----------------------------------------
-set realname = "Jacob Burch"
-set from = "jacob@burch.io"
+set realname = "Jacob Burch-Hill"
+set from = "jacob@burch-hill.com"
 set mbox_type   = Maildir
 
-set my_user="jacob@burch.io"
+set my_user="jacob@burch-hill.com"
 set my_smtp_server="mail.messagingengine.com"
 set smtp_url="smtp://$my_user@$my_smtp_server:587/"
 set ssl_starttls = yes
-set smtp_pass = `getpass fastmail`
+set smtp_pass = `getpass fastmail.burch-hill`
 
 ignore *
 unignore from: to: cc: bcc: date: subject:
