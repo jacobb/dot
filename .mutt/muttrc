@@ -1,7 +1,6 @@
 # General ----------------------------------------
 set folder      = ~/Mail
 set editor      = "vim"
-set mbox_type   = Maildir
 
 # Account ----------------------------------------
 set realname = "Jacob Burch-Hill"
