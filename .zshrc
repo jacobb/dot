@@ -45,22 +45,6 @@ setopt APPEND_HISTORY         # append (instead of overwriting) history
 setopt SHARE_HISTORY          # share history between shells
 export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
-
-# Lazy load pyenv
-export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
-if ! type pyenv > /dev/null && [ -f "${PYENV_ROOT}/bin/pyenv" ]; then
-    export PATH="${PYENV_ROOT}/bin:${PATH}"
-fi
-if type pyenv > /dev/null; then
-    export PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
-    function pyenv() {
-        unset -f pyenv
-        eval "$(command pyenv init -)"
-        eval "$(command pyenv virtualenv-init -)"
-        pyenv $@
-    }
-fi
-
 # autocompletes
 autoload -Uz compinit
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then

@@ -14,6 +14,22 @@ function load_google_trash() {
     export PATH=$PATH:$HOME/lib/google-cloud-sdk/bin
 }
 
+function load_pyenv() {
+    export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
+    if ! type pyenv > /dev/null && [ -f "${PYENV_ROOT}/bin/pyenv" ]; then
+        export PATH="${PYENV_ROOT}/bin:${PATH}"
+    fi
+    if type pyenv > /dev/null; then
+        export PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
+        function pyenv() {
+            unset -f pyenv
+            eval "$(command pyenv init -)"
+            eval "$(command pyenv virtualenv-init -)"
+            pyenv $@
+        }
+    fi
+}
+
 # aliases
 alias l='ls -l'
 alias ll='ls -la'
@@ -26,4 +42,5 @@ alias d='docker'
 alias dc='docker-compose'
 alias pa='pyenv activate'
 alias kc='load_google_trash'
+alias pe='load_pyenv'
 alias t='tmux new-session -A -s main'
