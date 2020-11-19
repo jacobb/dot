@@ -14,6 +14,7 @@ export TILLER_NAMESPACE=tiller
 export AWS_SDK_LOAD_CONFIG=1
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_CLI_EXPERIMENTAL=enabled
 
 # FLAGS
 export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
