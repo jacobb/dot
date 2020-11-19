@@ -69,6 +69,7 @@
 /.yarnrc
 /.CFUserTextEncoding
 /.Trash
+/.zsh/creds.sh
 /blog
 /books
 /notes
