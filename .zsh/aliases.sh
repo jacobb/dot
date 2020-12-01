@@ -12,6 +12,11 @@ function load_google_trash() {
     source <(kubectl completion zsh)
     source /usr/local/lib/google-cloud-sdk/completion.zsh.inc
     export PATH=$PATH:$HOME/lib/google-cloud-sdk/bin
+    # The next line updates PATH for the Google Cloud SDK.
+    if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
+
+    # The next line enables shell command completion for gcloud.
+    if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
 }
 
 function load_pyenv() {
