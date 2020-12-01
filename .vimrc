@@ -7,7 +7,7 @@ Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " fzf.vim also adds ag support
 Plug 'junegunn/fzf.vim'
 
@@ -31,6 +31,11 @@ syntax on
 let mapleader = " "
 set wildignore+=*/bundled/*,bower_components/*,node_modules/*,htmlcov/*,tmp/*,*.so,*.swp,*.zip,*.pyc,*.coverage
 runtime macros/matchit.vim
+
+let g:ale_linters = {
+\   'javascript': ['prettier', 'eslint'],
+\   'css': ['prettier'],
+\}
 
 "---- Indent Settings ----
 set autoindent
