@@ -13,6 +13,7 @@ Plug 'junegunn/fzf.vim'
 
 " language specific
 Plug 'sheerun/vim-polyglot'
+Plug 'othree/yajs.vim'
 
 " pretty things
 Plug 'itchyny/lightline.vim'
