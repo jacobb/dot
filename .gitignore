@@ -16,6 +16,7 @@
 /.config/direnv/allow
 /.config/configstore
 /.config/gcloud
+/.config/StardewValley
 /.docker
 /.dropbox
 /.erlang.cookie
