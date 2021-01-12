@@ -27,7 +27,7 @@ font:
   #bold_italic:
     #style: Bold Italic
 
-visual_bell:
+bell:
   duration: 0
 
 background_opacity: 1.0
@@ -48,7 +48,7 @@ key_bindings:
   - { key: T, mods: Command, chars: "\x00\x63"  }
   - { key: W, mods: Command, chars: "\x00\x64"  }
   - { key: Equals, mods: Command,         action: IncreaseFontSize }
-  - { key: Add,    mods: Command,         action: IncreaseFontSize }
+  - { key: Plus,    mods: Command,         action: IncreaseFontSize }
   - { key: Minus,  mods: Command,         action: DecreaseFontSize }
   - { key: V,      mods: Command,         action: Paste            }
   - { key: C,      mods: Command,         action: Copy             }
