@@ -11,6 +11,7 @@ function load_google_trash() {
     # pyenv shell 3.6.4 2.7.14
     source <(kubectl completion zsh)
     source /usr/local/lib/google-cloud-sdk/completion.zsh.inc
+    alias k='kubectl'
     export PATH=$PATH:$HOME/lib/google-cloud-sdk/bin
     # The next line updates PATH for the Google Cloud SDK.
     if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
