@@ -36,6 +36,10 @@ function load_pyenv() {
     fi
 }
 
+function rmd () {
+  pandoc $1 | lynx -stdin -vikeys
+}
+
 # aliases
 alias l='ls -l'
 alias ll='ls -la'
