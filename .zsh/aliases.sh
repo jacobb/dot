@@ -35,6 +35,11 @@ function load_pyenv() {
         }
     fi
 }
+function load_nvm() {
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+}
 
 function rmd () {
   pandoc $1 | lynx -stdin -vikeys
@@ -51,6 +56,8 @@ alias ymp3='youtube-dl --audio-quality=300k --extract-audio --audio-format=mp3'
 alias d='docker'
 alias dc='docker-compose'
 alias pa='pyenv activate'
+alias t='tmux new-session -A -s main'
+
+alias lnvm='load_pyenv'
 alias kc='load_google_trash'
 alias pe='load_pyenv'
-alias t='tmux new-session -A -s main'
