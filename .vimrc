@@ -103,7 +103,9 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
 
-map <F5> :setlocal spell! spelllang=en_us<CR>
+" Spelling
+set spellcapcheck=
+nnoremap <leader>S :setlocal spell! spelllang=en_us<CR>
 
 " searching
 nnoremap <leader>f :Files .<cr>
