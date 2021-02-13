@@ -25,7 +25,7 @@ export LS_OPTIONS='--color=auto'
 export LSCOLORS=''
 export CLICOLOR='Yes'
 export PYTHONUNBUFFERED=true
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -p ~/.ignore -g ""'
+export FZF_DEFAULT_COMMAND='ag -U --hidden -p ~/.ignore -g ""'
 
 
 # keybindings
