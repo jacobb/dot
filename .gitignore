@@ -40,6 +40,7 @@
 /.netrc
 /.node-gyp
 /.npm
+/.nvm
 /.op
 /old_mbsync
 /.mbsync
