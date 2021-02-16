@@ -12,6 +12,7 @@
 /bin/libphutil
 /bin/helm
 /.boto
+/.cargo
 /.config/cmus
 /.config/direnv/allow
 /.config/configstore
@@ -57,6 +58,7 @@
 /.psql_history
 /.pythonhist
 /.python_history
+/.rustup
 /.sqlite_history
 /.spectrum
 /.ssh
