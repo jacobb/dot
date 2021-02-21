@@ -62,6 +62,5 @@ fi
 # The next line enables shell command completion for gcloud.
 
 # includes
-source $HOME/.zsh/aliases.sh
 source $HOME/.zsh/prompt.sh
 source $HOME/.zsh/creds.sh

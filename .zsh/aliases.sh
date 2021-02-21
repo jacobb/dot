@@ -19,6 +19,7 @@ function load_google_trash() {
     # The next line enables shell command completion for gcloud.
     if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
 }
+alias kc='load_google_trash'
 
 function load_pyenv() {
     export PYENV_ROOT="${PYENV_ROOT:=${HOME}/.pyenv}"
@@ -35,11 +36,14 @@ function load_pyenv() {
         }
     fi
 }
+alias pe='load_pyenv'
+
 function load_nvm() {
     export NVM_DIR="$HOME/.nvm"
     [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
     [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 }
+alias lnvm='load_nvm'
 
 function rmd () {
   pandoc $1 | lynx -stdin -vikeys
@@ -58,6 +62,3 @@ alias dc='docker-compose'
 alias pa='pyenv activate'
 alias t='tmux new-session -A -s main'
 
-alias lnvm='load_pyenv'
-alias kc='load_google_trash'
-alias pe='load_pyenv'
