@@ -20,22 +20,104 @@ font:
     # family: Inconsolata Nerd Font
     family: SauceCodePro Nerd Font
     style: Regular
-  #bold:
-    #style: Italic
-  #italic:
-    #style: Italic
-  #bold_italic:
-    #style: Bold Italic
+
+schemes:
+  tokyo-night: &tokyo-night
+    # Default colors
+    primary:
+      background: '#1a1b26'
+      # background: '#000000'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x787c99'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+  tokyo-night-storm: &tokyo-night-storm
+    # Default colors
+    primary:
+      background: '0x24283b'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x9699a8'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+  gruvbox: &gruvbox
+    primary:
+      background: '0x282828'
+      foreground: '0xeeeeee'
+
+    normal:
+      black:   '0x282828'
+      red:     '0xf43753'
+      green:   '0xc9d05c'
+      yellow:  '0xffc24b'
+      blue:    '0xb3deef'
+      magenta: '0xd3b987'
+      cyan:    '0x73cef4'
+      white:   '0xeeeeee'
+
+    bright:
+      black:   '0x4c4c4c'
+      red:     '0xf43753'
+      green:   '0xc9d05c'
+      yellow:  '0xffc24b'
+      blue:    '0xb3deef'
+      magenta: '0xd3b987'
+      cyan:    '0x73cef4'
+      white:   '0xfeffff'
+
+    cursor:
+      text: '#000000'
+      cursor: '#ffffff'
 
 bell:
   duration: 0
 
-background_opacity: 1.0
 live_config_reload: true
 
 mouse:
   url:
     modifiers: Command
+
+colors: *tokyo-night
 
 key_bindings:
   - { key: F, mods: Command, action: ToggleFullscreen }
@@ -45,6 +127,7 @@ key_bindings:
   - { key: Key2, mods: Command, chars: "\x00\x32"  }
   - { key: Key3, mods: Command, chars: "\x00\x33"  }
   - { key: Key4, mods: Command, chars: "\x00\x34"  }
+  - { key: Key5, mods: Command, chars: "\x00\x35"  }
   - { key: T, mods: Command, chars: "\x00\x63"  }
   - { key: W, mods: Command, chars: "\x00\x64"  }
   - { key: Equals, mods: Command,         action: IncreaseFontSize }
@@ -60,46 +143,3 @@ key_bindings:
   - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
   - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
   - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
-
-colors:
-  primary:
-    background: '0x282828'
-    foreground: '0xeeeeee'
-
-  normal:
-    black:   '0x282828'
-    red:     '0xf43753'
-    green:   '0xc9d05c'
-    yellow:  '0xffc24b'
-    blue:    '0xb3deef'
-    magenta: '0xd3b987'
-    cyan:    '0x73cef4'
-    white:   '0xeeeeee'
-
-  bright:
-    black:   '0x4c4c4c'
-    red:     '0xf43753'
-    green:   '0xc9d05c'
-    yellow:  '0xffc24b'
-    blue:    '0xb3deef'
-    magenta: '0xd3b987'
-    cyan:    '0x73cef4'
-    white:   '0xfeffff'
-
-  cursor:
-    text: '#000000'
-    cursor: '#ffffff'
-
-  #selection:
-  #  text: '#eaeaea'
-  #  background: '#404040'
-  # Dim colors
-  #dim:
-  #  black:   '#000000'
-  #  red:     '#8c3336'
-  #  green:   '#7a8530'
-  #  yellow:  '#97822e'
-  #  blue:    '#506d8f'
-  #  magenta: '#80638e'
-  #  cyan:    '#497e7a'
-  #  white:   '#9a9a9a'
