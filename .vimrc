@@ -20,9 +20,14 @@ Plug 'vmchale/just-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'ryanoasis/vim-devicons'
+
 " themes
+" Currently playing with a bunch before (finally) settling on one.
 Plug 'morhetz/gruvbox'
-" Plug 'jacoborus/tender.vim'
+Plug 'sainnhe/edge'
+Plug 'jacoborus/tender.vim'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'ts-26a/vim-darkspace'
 
 " under review
 Plug 'blueyed/vim-diminactive'
@@ -60,7 +65,7 @@ set hidden
 
 set showcmd
 set wildmenu
-set wildmode=full
+set wildmode=longest,list
 set incsearch
 set noswapfile
 set nobackup
@@ -72,11 +77,12 @@ set ttimeoutlen=50
 " splintered off configs for isolated parts of code
 " lightline needs to run before gruvbox for reasons?
 runtime lightline.config.vim
-" runtime statusline.vim
 
-colorscheme gruvbox
+colorscheme tokyonight
+" colorscheme edge
+" colorscheme gruvbox
 " colorscheme tender
-let g:gruvbox_contrast_dark='soft'
+" let g:gruvbox_contrast_dark='soft'
 
 set termguicolors
 let base16colorspace=256  " Access colors present in 256 colorspace
