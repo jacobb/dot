@@ -65,6 +65,7 @@
 /.spectrum
 /.ssh
 /.tendril
+/.tmux/resurrect
 /.tmux/plugins
 /.tmp
 /.vagrant.d/
