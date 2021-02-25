@@ -2,6 +2,7 @@
 *.orig
 *.pyc
 *.swp
+*.spl
 *~
 /.arcrc
 /.aws
@@ -14,8 +15,9 @@
 /.boto
 /.cargo
 /.config/cmus
-/.config/direnv/allow
 /.config/configstore
+/.config/direnv/allow
+/.config/gh/hosts.yml
 /.config/gcloud
 /.config/StardewValley
 /.docker
