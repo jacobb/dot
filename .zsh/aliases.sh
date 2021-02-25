@@ -61,4 +61,4 @@ alias d='docker'
 alias dc='docker-compose'
 alias pa='pyenv activate'
 alias t='tmux new-session -A -s main'
-
+alias url='urlview'
