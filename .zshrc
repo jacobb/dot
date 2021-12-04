@@ -3,10 +3,12 @@ export EDITOR='vim'
 # PATH
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/Users/jacob/bin:$PATH"
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="/Users/jacob/Library/Python/3.7/bin:$PATH"
-export PATH="/Users/jacob/.local/bin:$PATH"
+export PATH="/Users/jacob/.cargo/bin:$PATH"
+# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# export PATH="/Users/jacob/Library/Python/3.7/bin:$PATH"
+# export PATH="/Users/jacob/.local/bin:$PATH"
 
 # kube/docker
 export KUBECONFIG=$HOME/.kube/personal:$HOME/.kube/config
@@ -63,4 +65,4 @@ fi
 
 # includes
 source $HOME/.zsh/prompt.sh
-source $HOME/.zsh/creds.sh
+# source $HOME/.zsh/creds.sh
