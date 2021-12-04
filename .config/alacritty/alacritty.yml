@@ -18,7 +18,8 @@ font:
   use_thin_strokes: true  # retina only
   normal:
     # family: Inconsolata Nerd Font
-    family: SauceCodePro Nerd Font
+    # family: SauceCodePro Nerd Font
+    family: SFMono Nerd Font
     style: Regular
 
 schemes:
@@ -113,13 +114,19 @@ bell:
 
 live_config_reload: true
 
-mouse:
-  url:
-    modifiers: Command
+hints:
+  enabled:
+    - regex: "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\" {-}\\^⟨⟩`]+"
+      command: xdg-open
+      post_processing: true
+      mouse:
+        enabled: true
+        mods: Control
 
 colors: *tokyo-night
 
 key_bindings:
+  - { key: Space, mods: Control, chars: "\x00" }
   - { key: F, mods: Command, action: ToggleFullscreen }
   - { key: D, mods: Command, chars: "\x00\x76"  }
   - { key: D, mods: Command|Shift, chars: "\x00\x68"  }
@@ -136,8 +143,10 @@ key_bindings:
   - { key: V,      mods: Command,         action: Paste            }
   - { key: C,      mods: Command,         action: Copy             }
   - { key: Q,      mods: Command,         action: Quit             }
-  - { key: Right,  mods: Alt,           chars: "\x1bf"                       }
-  - { key: Left,  mods: Alt,           chars: "\x1bb"                       }
+  - { key: Up,  mods: Control|Alt,           chars: "\x00\x59"                       }
+  - { key: Down,  mods: Control|Alt,           chars: "\x00\x44"                       }
+  - { key: Left,  mods: Control|Alt,           chars: "\x00\x4C"                       }
+  - { key: Right,  mods: Control|Alt,           chars: "\x00\x52"                       }
 
   - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
   - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }

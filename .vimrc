@@ -6,7 +6,6 @@ Plug 'tpope/vim-repeat'
 Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " fzf.vim also adds ag support
 Plug 'junegunn/fzf.vim'
@@ -20,17 +19,13 @@ Plug 'vmchale/just-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'ryanoasis/vim-devicons'
+Plug 'blueyed/vim-diminactive'
 
 " themes
-" Currently playing with a bunch before (finally) settling on one.
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/edge'
-Plug 'jacoborus/tender.vim'
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'ts-26a/vim-darkspace'
 
 " under review
-Plug 'blueyed/vim-diminactive'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 filetype plugin indent on
@@ -59,6 +54,16 @@ set complete+=d
 " Show line numbers
 set number
 set colorcolumn=88
+set relativenumber
+
+set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m
+
+" Wrap settings
+" set wrap " turn on line wrapping
+" set wrapmargin=8 " wrap lines when coming within n characters from side
+" set linebreak " set soft wrapping
+" set showbreak=… " show ellipsis at breaking
+" set textwidth=88
 
 " Allow hidden buffers, don't limit to 1 file per window
 set hidden
@@ -70,6 +75,9 @@ set incsearch
 set noswapfile
 set nobackup
 set nowritebackup
+" don't scan included files for completion
+set complete-=i,d
+
 
 set timeoutlen=1000
 set ttimeoutlen=50
@@ -115,12 +123,18 @@ nnoremap <leader>S :setlocal spell! spelllang=en_us<CR>
 
 " searching
 nnoremap <leader>f :Files .<cr>
+nnoremap <leader>b :History <cr>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
+nnoremap <leader>ntf :NERDTreeFind<CR>
 nnoremap <leader>F :ALEFix<CR>
 nnoremap <leader>r :Ag<CR>
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <leader>ne :lne<CR>
 nnoremap <leader>pe :pe<CR>
 nnoremap <silent> <c-_> :set hlsearch!<cr>
+
+" misc aliases
+nnoremap <leader>G :G<cr>
 
 " sets up line/global search+replace of highlighted word
 nnoremap <leader>s :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/

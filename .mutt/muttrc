@@ -1,6 +1,7 @@
 # General ----------------------------------------
 set folder      = ~/Mail
-set editor      = "vim"
+set editor      = "muttvim"
+unset signature
 
 # Account ----------------------------------------
 set realname = "Jacob Burch-Hill"
@@ -19,6 +20,7 @@ unhdr_order *
 hdr_order from: to: cc: bcc: date: subject:
 alternative_order text/plain text/enriched text/html
 auto_view text/html
+set text_flowed
 
 # Etc Options
 set mail_check = 0
@@ -132,10 +134,8 @@ alternative_order text/plain text/enriched text/html  # save html for last
 set sidebar_visible = yes
 set sidebar_width=24
 color sidebar_new color221 color233
-
-set date_format="%a, %b %d %H:%M"
-set index_format="%4C %Z %D %-16.16L  %s %* %c"
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+# set index_format="%3C %Z %[!%m.%d.%y] %-19.19n  %?X?(%1X)&   ? %?M?(%02M)&    ? %s%> %?y?[%Y]?"
 set mail_check_stats
 
 # Status Bar -----------------------------------------
@@ -147,8 +147,9 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 source ~/.mutt/dracula.muttrc
 
 # Index View Options ---------------------------------
-set date_format = "%m/%d"
-set index_format = "[%Z]  %D  %-20.20F  %s"
+set index_format="%Z %D %-15.15L %s"
+# set date_format="%a, %b %d %H:%M"
+set date_format="%b %d %H:%M"
 set sort = threads                         # like gmail
 set sort_aux = reverse-last-date-received  # like gmail
 set uncollapse_jump                        # don't collapse on an unread message
@@ -176,6 +177,7 @@ bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
 
 # Pager View Options ---------------------------------
+set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
 set pager_index_lines = 10 # number of index lines to show
 set pager_context = 3      # number of context lines to show
 set pager_stop             # don't go to next message automatically

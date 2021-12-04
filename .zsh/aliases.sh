@@ -62,3 +62,5 @@ alias dc='docker-compose'
 alias pa='pyenv activate'
 alias t='tmux new-session -A -s main'
 alias url='urlview'
+
+alias did="vim +'normal Go' +'r!date' ~/notes/did.txt"

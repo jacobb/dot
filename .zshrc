@@ -26,7 +26,7 @@ export LSCOLORS=''
 export CLICOLOR='Yes'
 export PYTHONUNBUFFERED=true
 export FZF_DEFAULT_COMMAND='ag -U --hidden -p ~/.ignore -g ""'
-
+export GH_EDITOR='vim -c "set textwidth=0 wrap linebreak nolist columns=79"'
 
 # keybindings
 # export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/

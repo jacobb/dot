@@ -42,11 +42,11 @@
     la = !git l --all
     b = "!. ~/bin/.githelpers && pretty_git_branch"
     bs = "!. ~/bin/.githelpers && pretty_git_branch_sorted"
+    bb = "!. ~/bin/.githelpers && fbr"
 [color]
     # turn on color
     ui = auto
-[svn]
-    # push empty directory removals back to svn at directory deletes
-    rmdir = true
 [merge]
     tool = vimdiff
+[init]
+	defaultBranch = main

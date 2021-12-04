@@ -1,0 +1,15 @@
+#!/usr/local/bin/zsh
+
+set -e
+
+CURRENT_PANE="$(tmux display-message -p -F "#{session_name}")"
+if echo "$CURRENT_PANE" | grep -q '^popup.*'; then
+    tmux detach-client
+else
+    if [ "$1" = "single" ]; then
+        tmux popup -d '#{pane_current_path}' -x100% -y0% -w50% -h50% -E "tmux attach -t 'popup-$CURRENT_PANE' || tmux new -s 'popup-$CURRENT_PANE'" || true
+    else
+        # tmux popup -xC -yC -w75% -h75% -E "tmux attach -t popup-master || load_popup" || true
+        tmux popup -xC -yC -w75% -h75% -E "tmux-blank-popup" || true
+    fi
+fi

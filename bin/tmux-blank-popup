@@ -1,0 +1,2 @@
+#!/bin/sh
+tmux new-session -A -s popup-master "tmux set-option status off; vi ~/notes/schd.md"
