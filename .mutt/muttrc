@@ -110,8 +110,8 @@ macro index,pager G '<group-reply>'
 macro index,pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 # Sync email
-macro index O "<shell-escape>syncmail<enter>"           "run mbsync to sync all mail"
-macro index o "<shell-escape>mbsync -n quickmail<enter>" "run mbsync to sync inbox"
+macro index I "<shell-escape>syncmail<enter>"           "run mbsync to sync all mail"
+macro index i "<shell-escape>mbsync -n quickmail<enter>" "run mbsync to sync inbox"
 
 # Hitting G replies to all
 
