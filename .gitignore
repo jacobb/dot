@@ -36,6 +36,7 @@
 /.history
 /.bash_history
 /.zsh_history
+/.zsh_sessions
 /.heroku
 /.ipython
 /.lesshst
