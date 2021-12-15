@@ -62,5 +62,8 @@ alias dc='docker-compose'
 alias pa='pyenv activate'
 alias t='tmux new-session -A -s main'
 alias url='urlview'
+alias copysshkey='cat ~/.ssh/id_rsa.pub|pbcopy'
 
 alias did="vim +'normal Go' +'r!date' ~/notes/did.txt"
+
+alias tmuxmenu='tmux display-menu "split vertical" v "split -v" "split horizontal" h "split -h"'
