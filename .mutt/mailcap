@@ -1,6 +1,6 @@
 # text/html; open -a "/Applications/Firefox.app" %s & sleep 3; description=HTML Text; nametemplate=%s.html;
-# text/html; open -a "Google Chrome" %s & sleep 1; -T text/html; nametemplate=%s.html; description=HTML Text; test=sh -c 'test -n $DISPLAY'; needsterminal;
-text/html; open -a "Safari" %s & sleep 1; -T text/html; nametemplate=%s.html; description=HTML Text; test=sh -c 'test -n $DISPLAY'; needsterminal;
+text/html; open -a "Google Chrome" %s & sleep 1; -T text/html; nametemplate=%s.html; description=HTML Text; test=sh -c 'test -n $DISPLAY'; needsterminal;
+# text/html; open -a "Safari" %s & sleep 1; -T text/html; nametemplate=%s.html; description=HTML Text; test=sh -c 'test -n $DISPLAY'; needsterminal;
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
 text/calendar; open -a "/Applications/Calendar.app" %s
