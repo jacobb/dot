@@ -66,4 +66,4 @@ fi
 
 # includes
 source $HOME/.zsh/prompt.sh
-# source $HOME/.zsh/creds.sh
+source $HOME/.zsh/aliases.sh
