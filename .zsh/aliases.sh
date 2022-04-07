@@ -67,3 +67,6 @@ alias copysshkey='cat ~/.ssh/id_rsa.pub|pbcopy'
 alias did="vim +'normal Go' +'r!date' ~/notes/did.txt"
 
 alias tmuxmenu='tmux display-menu "split vertical" v "split -v" "split horizontal" h "split -h"'
+
+alias vw='vim -c VimwikiIndex'
+alias vwd='vim -c VimwikiMakeDiaryNote'

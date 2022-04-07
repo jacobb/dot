@@ -26,6 +26,8 @@ Plug 'ghifarit53/tokyonight-vim'
 
 " under review
 Plug 'tpope/vim-fugitive'
+Plug 'vimwiki/vimwiki'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 filetype plugin indent on
@@ -126,6 +128,7 @@ nnoremap <leader>f :Files .<cr>
 nnoremap <leader>b :History <cr>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
 nnoremap <leader>ntf :NERDTreeFind<CR>
+nnoremap <leader>ntr :NERDTreeRefreshRoot<CR>
 nnoremap <leader>F :ALEFix<CR>
 nnoremap <leader>r :Ag<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
@@ -139,3 +142,17 @@ nnoremap <leader>G :G<cr>
 " sets up line/global search+replace of highlighted word
 nnoremap <leader>s :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>%       :%s/\<<C-r>=expand("<cword>")<CR>\>/
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+            \ 'syntax': 'markdown', 'ext': '.md'}]
+
+function! VimwikiStart()
+    :silent 0r !~/bin/gentemp.py '%'
+    normal 2gg
+endfunction
+
+au BufNewFile ~/vimwiki/diary/*.md call VimwikiStart()
+
+nnoremap <silent> <leader>p <Plug>(ale_previous_wrap)
+nnoremap <silent> <leader>n <Plug>(ale_next_wrap)
