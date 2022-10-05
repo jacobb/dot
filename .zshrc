@@ -1,4 +1,4 @@
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # PATH
 export PATH="/usr/local/sbin:$PATH"
@@ -53,6 +53,7 @@ setopt SHARE_HISTORY          # share history between shells
 export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # autocompletes
+fpath=( ~/.zsh/completions "${fpath[@]}" )
 autoload -Uz compinit
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
   compinit
@@ -62,8 +63,10 @@ fi
 # autoload -U +X bashcompinit && bashcompinit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.zsh/just.zsh ] && source ~/.zsh/just.zsh
 # The next line enables shell command completion for gcloud.
 
 # includes
 source $HOME/.zsh/prompt.sh
 source $HOME/.zsh/aliases.sh
+

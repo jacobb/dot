@@ -8,16 +8,14 @@ function super_clear() {
 }
 
 function load_google_trash() {
-    # pyenv shell 3.6.4 2.7.14
-    source <(kubectl completion zsh)
-    source /usr/local/lib/google-cloud-sdk/completion.zsh.inc
     alias k='kubectl'
     export PATH=$PATH:$HOME/lib/google-cloud-sdk/bin
+
     # The next line updates PATH for the Google Cloud SDK.
-    if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
+    if [ -f '/Users/jacob/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jacob/bin/google-cloud-sdk/path.zsh.inc'; fi
 
     # The next line enables shell command completion for gcloud.
-    if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
+    if [ -f '/Users/jacob/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jacob/bin/google-cloud-sdk/completion.zsh.inc'; fi
 }
 alias kc='load_google_trash'
 
@@ -61,6 +59,7 @@ alias d='docker'
 alias dc='docker-compose'
 alias pa='pyenv activate'
 alias t='tmux new-session -A -s main'
+alias tp='tmux new-session -A -s personal'
 alias url='urlview'
 alias copysshkey='cat ~/.ssh/id_rsa.pub|pbcopy'
 
@@ -70,3 +69,10 @@ alias tmuxmenu='tmux display-menu "split vertical" v "split -v" "split horizonta
 
 alias vw='vim -c VimwikiIndex'
 alias vwd='vim -c VimwikiMakeDiaryNote'
+
+alias vi='nvim'
+alias vim='nvim'
+alias cat='bat'
+alias j='just'
+
+alias bad_docker_volumes='comm -2 -3 <(docker volume ls -q | sort) <(docker volume ls -q -f name=postgres -f name=search| sort)'

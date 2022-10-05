@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 " proven
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
@@ -19,15 +20,20 @@ Plug 'vmchale/just-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'ryanoasis/vim-devicons'
-Plug 'blueyed/vim-diminactive'
+" Plug 'blueyed/vim-diminactive'
 
 " themes
-Plug 'ghifarit53/tokyonight-vim'
+" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'EdenEast/nightfox.nvim'
 
 " under review
 Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 Plug 'ap/vim-css-color'
+Plug 'romainl/vim-cool'
+
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 filetype plugin indent on
@@ -88,11 +94,9 @@ set ttimeoutlen=50
 " lightline needs to run before gruvbox for reasons?
 runtime lightline.config.vim
 
-colorscheme tokyonight
-" colorscheme edge
-" colorscheme gruvbox
-" colorscheme tender
-" let g:gruvbox_contrast_dark='soft'
+let g:tokyonight_style = "night"
+" colorscheme tokyonight
+colorscheme nightfox
 
 set termguicolors
 let base16colorspace=256  " Access colors present in 256 colorspace
@@ -108,6 +112,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" tnoremap <C-h> <C-\><C-N><C-w>h
+" tnoremap <C-j> <C-\><C-N><C-w>j
+" tnoremap <C-k> <C-\><C-N><C-w>k
+" tnoremap <C-l> <C-\><C-N><C-w>l
+" tnoremap <C-g> <C-\><C-n>
 set splitbelow splitright
 
 " Trailing Whitespace
@@ -115,9 +124,15 @@ highlight extrawhitespace ctermbg=red guibg=red
 match extrawhitespace /\s\+$/
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let NERDTreeRespectWildIgnore=1
+" let NERDTreeShowHidden=1
+" let NERDTreeRespectWildIgnore=1
+" map <C-n> :NERDTreeToggle<CR>
+" nnoremap <leader>ntf :NERDTreeFind<CR>
+" nnoremap <leader>ntr :NERDTreeRefreshRoot<CR>
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>ntr :NvimTreeRefresh<CR>
+nnoremap <leader>ntf :NvimTreeFindFile<CR>
 
 " Spelling
 set spellcapcheck=
@@ -127,14 +142,12 @@ nnoremap <leader>S :setlocal spell! spelllang=en_us<CR>
 nnoremap <leader>f :Files .<cr>
 nnoremap <leader>b :History <cr>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
-nnoremap <leader>ntf :NERDTreeFind<CR>
-nnoremap <leader>ntr :NERDTreeRefreshRoot<CR>
 nnoremap <leader>F :ALEFix<CR>
 nnoremap <leader>r :Ag<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <leader>ne :lne<CR>
 nnoremap <leader>pe :pe<CR>
-nnoremap <silent> <c-_> :set hlsearch!<cr>
+nnoremap <leader>cs :set hlsearch!<cr>
 
 " misc aliases
 nnoremap <leader>G :G<cr>
@@ -144,7 +157,7 @@ nnoremap <leader>s :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>%       :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/',
+let g:vimwiki_list = [{'path': '~/vimwiki',
             \ 'syntax': 'markdown', 'ext': '.md'}]
 
 function! VimwikiStart()
@@ -152,7 +165,14 @@ function! VimwikiStart()
     normal 2gg
 endfunction
 
-au BufNewFile ~/vimwiki/diary/*.md call VimwikiStart()
+au BufNewFile */wiki/diary/*.md call VimwikiStart()
 
 nnoremap <silent> <leader>p <Plug>(ale_previous_wrap)
 nnoremap <silent> <leader>n <Plug>(ale_next_wrap)
+let g:ale_html_beautify_options = '-s 2'
+let ale_change_sign_column_color = 1
+set signcolumn=number
+
+" fzf
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let $FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --theme=tokyo {}' --preview-window 'right:60%' --layout reverse --margin=1,4"

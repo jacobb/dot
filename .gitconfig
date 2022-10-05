@@ -3,7 +3,8 @@
 	email = jacob@burch-hill.com
 [alias]
     st = status
-    ci = commit --verbose
+    # ci = commit --verbose
+    ci = commit
     bm = branch --merged
     co = checkout
     di = diff
@@ -42,11 +43,29 @@
     la = !git l --all
     b = "!. ~/bin/.githelpers && pretty_git_branch"
     bs = "!. ~/bin/.githelpers && pretty_git_branch_sorted"
-    bb = "!. ~/bin/.githelpers && fbr"
+    bb = "!. ~/bin/.githelpers && fzfbranches"
+    bbr = "!. ~/bin/.githelpers && fzfbranches_all"
+    regexadd = "!f() { git diff -U0 \
+                | grepdiff -E $1 --output-matching=hunk \
+                | git apply --cached --unidiff-zero; }; f"
 [color]
     # turn on color
     ui = auto
-[merge]
-    tool = vimdiff
 [init]
 	defaultBranch = main
+[core]
+    pager = ~/bin/git-magic-diff
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    map-styles = bold purple => syntax magenta, bold cyan => syntax blue
+    features = lion zebra-dark
+[include]
+    path = /Users/jacob/.config/delta/themes.gitconfig
+[merge]
+	tool = fugitive
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[mergetool]
+	keepBackup = false

@@ -14,12 +14,19 @@ hs.hotkey.bind({"cmd", "ctrl"}, "F", function()
     hs.alert(out)
 end)
 
+hs.hotkey.bind({"cmd", "option", "ctrl"}, "D", function()
+    hs.alert("Setting up Desk")
+    local log = hs.logger.new('init','debug')
+    local ts3Audio = hs.audiodevice.findOutputByName("CalDigit Thunderbolt 3 Audio")
+    log.i(ts3Audio)
+    ts3Audio:setDefaultOutputDevice()
+end)
+
 hs.hotkey.bind({"cmd", "ctrl"}, "P", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
-  hs.alert(max.w / 2)
 
   f.x = max.x
   f.y = max.y
@@ -143,3 +150,30 @@ expose_browsers = hs.expose.new{'Safari','Google Chrome'} -- specialized expose 
 -- then bind to a hotkey
 hs.hotkey.bind('ctrl-cmd','e','Expose',function()expose:toggleShow()end)
 hs.hotkey.bind('ctrl-cmd-shift','e','App Expose',function()expose_app:toggleShow()end)
+
+hs.hotkey.bind({'shift', 'cmd'}, '`', function()
+  -- get the focused window
+  local win = hs.window.focusedWindow()
+  -- get the screen where the focused window is displayed, a.k.a. current screen
+  local screen = win:screen()
+  -- compute the unitRect of the focused window relative to the current screen
+  -- and move the window to the next screen setting the same unitRect 
+  win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
+end)
+
+
+function changeVolume(diff)
+  return function()
+    local current = hs.audiodevice.defaultOutputDevice():volume()
+    local new = math.min(100, math.max(0, math.floor(current + diff)))
+    if new > 0 then
+      hs.audiodevice.defaultOutputDevice():setMuted(false)
+    end
+    hs.alert.closeAll(0.0)
+    hs.alert.show("Volume " .. new .. "%", {}, 0.5)
+    hs.audiodevice.defaultOutputDevice():setVolume(new)
+  end
+end
+
+hs.hotkey.bind({}, 'F10', changeVolume(-3))
+hs.hotkey.bind({}, 'F11', changeVolume(3))

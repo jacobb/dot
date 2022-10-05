@@ -9,9 +9,11 @@ set from = "jacob@burch-hill.com"
 set mbox_type   = Maildir
 
 set my_user="jacob@burch-hill.com"
-set my_smtp_server="mail.messagingengine.com"
+set my_smtp_server="smtp.fastmail.com"
 set smtp_url="smtp://$my_user@$my_smtp_server:587/"
 set ssl_starttls = yes
+set smtp_authenticators="login"
+set ssl_force_tls = yes
 set smtp_pass = `getpass fastmail.burch-hill`
 
 ignore *
@@ -47,7 +49,7 @@ set spoolfile = "+$my_inbox"
 # Draft folder
 set postponed = "+$my_drafts"
 # Fastmail auto-saves sent files already
-unset record
+# unset record
 set trash = "=$my_trash"
 
 mailboxes   +$my_inbox \

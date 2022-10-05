@@ -20,6 +20,7 @@ font:
     # family: Inconsolata Nerd Font
     # family: SauceCodePro Nerd Font
     family: SFMono Nerd Font
+    # family: VictorMono Nerd Font
     style: Regular
 
 schemes:
@@ -108,6 +109,37 @@ schemes:
     cursor:
       text: '#000000'
       cursor: '#ffffff'
+  nightfox: &nightfox
+    # Nightfox Alacritty Colors
+    # Style: nightfox
+    # Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox_alacritty.yml
+    # Default colors
+    primary:
+      background: '0x192330'
+      foreground: '0xcdcecf'
+    # Normal colors
+    normal:
+      black:   '0x393b44'
+      red:     '0xc94f6d'
+      green:   '0x81b29a'
+      yellow:  '0xdbc074'
+      blue:    '0x719cd6'
+      magenta: '0x9d79d6'
+      cyan:    '0x63cdcf'
+      white:   '0xdfdfe0'
+    # Bright colors
+    bright:
+      black:   '0x575860'
+      red:     '0xd16983'
+      green:   '0x8ebaa4'
+      yellow:  '0xe0c989'
+      blue:    '0x86abdc'
+      magenta: '0xbaa1e2'
+      cyan:    '0x7ad4d6'
+      white:   '0xe4e4e5'
+    indexed_colors:
+      - { index: 16, color: '0xf4a261' }
+      - { index: 17, color: '0xd67ad2' }
 
 bell:
   duration: 0
@@ -123,9 +155,13 @@ hints:
         enabled: true
         mods: Control
 
-colors: *tokyo-night
+colors: *nightfox
 
 key_bindings:
+  - { key: A,         mods: Alt,       chars: "\x1ba" }
+  - { key: B,         mods: Alt,       chars: "\x1bb" }
+  - { key: C,         mods: Alt,       chars: "\x1bc" }
+  - { key: D,         mods: Alt,       chars: "\x1bd" }
   - { key: Space, mods: Control, chars: "\x00" }
   - { key: F, mods: Command, action: ToggleFullscreen }
   - { key: D, mods: Command, chars: "\x00\x76"  }
