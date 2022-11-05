@@ -64,14 +64,13 @@ alias url='urlview'
 alias copysshkey='cat ~/.ssh/id_rsa.pub|pbcopy'
 
 alias did="vim +'normal Go' +'r!date' ~/notes/did.txt"
+alias gr='cd $(git rev-parse --show-toplevel)'
 
 alias tmuxmenu='tmux display-menu "split vertical" v "split -v" "split horizontal" h "split -h"'
 
 alias vw='vim -c VimwikiIndex'
 alias vwd='vim -c VimwikiMakeDiaryNote'
 
-alias vi='nvim'
-alias vim='nvim'
 alias cat='bat'
 alias j='just'
 

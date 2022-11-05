@@ -66,6 +66,6 @@
 [merge]
 	tool = fugitive
 [mergetool "fugitive"]
-	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+	cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [mergetool]
 	keepBackup = false
