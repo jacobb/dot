@@ -14,14 +14,13 @@ scrolling:
 
 # Font configuration
 font:
-  size: 14.0
+  size: 15.0
   use_thin_strokes: true  # retina only
   normal:
     # family: Inconsolata Nerd Font
     # family: SauceCodePro Nerd Font
     family: SFMono Nerd Font
     # family: VictorMono Nerd Font
-    style: Regular
 
 schemes:
   tokyo-night: &tokyo-night

@@ -9,6 +9,14 @@ hs.hotkey.bind({"cmd", "ctrl"}, "Y", function()
     hs.layout.apply(windowLayout)
 end)
 
+hs.hotkey.bind({"cmd", "ctrl", "option"}, "1", function()
+    hs.spaces.gotoSpace(1)
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "option"}, "2", function()
+    hs.spaces.gotoSpace(2)
+end)
+
 hs.hotkey.bind({"cmd", "ctrl"}, "F", function()
     out, _, _ = hs.execute('/Users/jacob/bin/fixmonitors.sh')
     hs.alert(out)

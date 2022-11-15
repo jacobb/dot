@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 import json
 import os
-import sys
+
+SCROLL = True
+TRACK_SIZE = 20
 
 swin_pipe = os.popen("osascript /Users/jacob/bin/get-music.applescript")
 try:
@@ -10,4 +12,21 @@ try:
 except ValueError:
     swin = {}
 
-exit(json.dumps(swin))
+is_playing = "🎧" if swin.get("status", "notplaying") == "playing" else "🔇"
+artist = swin.get("artist", "")
+title = swin.get("track", "")
+position = swin.get("position", "")
+
+track = f"{artist} - {title}"
+
+is_track_long = len(track) > TRACK_SIZE
+
+if SCROLL and is_track_long:
+    track_extra = len(track) - TRACK_SIZE + 1
+    x = position % track_extra
+    track = track[x:x+TRACK_SIZE]
+elif not SCROLL:
+    track = track[:TRACK_SIZE]
+
+final_str = f"{is_playing} {track}"
+print(final_str)

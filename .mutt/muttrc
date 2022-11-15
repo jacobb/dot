@@ -128,6 +128,12 @@ alternative_order text/plain text/html
 unauto_view *
 auto_view text/html
 
+# macro  index  vh  "<copy-message>/tmp/mutttmpbox\n<enter><shell-escape>~/bin/viewhtmlmail.py\n" "View HTML in browser"
+# macro  pager  vh  "<copy-message>/tmp/mutttmpbox\n<enter><shell-escape>~/bin/viewhtmlmail.py\n" "View HTML in browser"
+
+macro index,pager B "<copy-message>/tmp/mutttmpbox\n<enter><shell-escape>~/bin/viewhtmlmail.py /tmp/mutttmpbox\n" "View HTML in browser"
+
+
 set mailcap_path = ~/.mutt/mailcap
 auto_view text/html                                   # view html automatically
 alternative_order text/plain text/enriched text/html  # save html for last

@@ -55,6 +55,8 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set splitbelow
+set splitright
 
 set hidden  " Allow hidden buffers, don't limit to 1 file per window
 set showcmd
@@ -81,7 +83,7 @@ runtime lightline.config.vim
 " set textwidth=88
 
 " pretty
-colors PaperColor
+colors onedark
 if exists('$TMUX')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -139,6 +141,7 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 nnoremap <C-n> :Lexplore<CR>
+nnoremap <Leader>ntf :Lexplore %:h<CR><CR>
 
 " ale
 nnoremap <silent> <leader>p <Plug>(ale_previous_wrap)

@@ -1,2 +1,2 @@
 #!/bin/sh
-nvim -c "set textwidth=0 wrap linebreak nolist columns=79" "$@"
+vim -c "set textwidth=0 wrap linebreak nolist columns=88" "$@"

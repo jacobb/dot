@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/jacob/.virtualenvs'
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/jacob/src/wfa/ngrid'
+let g:netrw_dirhist_7='/Users/jacob/src/wfa/ngrid/ngridmasite/migrations'
+let g:netrw_dirhist_6='/Users/jacob/src/wfa/ngrid'
+let g:netrw_dirhist_5='/Users/jacob/src/wfa/wfa-common'
+let g:netrw_dirhist_4='/Users/jacob/src/wfa/wfa-django'
+let g:netrw_dirhist_3='/Users/jacob/src/wfa'
+let g:netrw_dirhist_2='/Users/jacob/src/wfa/ngrid'
+let g:netrw_dirhist_1='/Users/jacob/src/mcfarlane'
