@@ -68,8 +68,7 @@ alias gr='cd $(git rev-parse --show-toplevel)'
 
 alias tmuxmenu='tmux display-menu "split vertical" v "split -v" "split horizontal" h "split -h"'
 
-alias vw='vim -c VimwikiIndex'
-alias vwd='vim -c VimwikiMakeDiaryNote'
+alias vwd='ink journal'
 
 alias cat='bat'
 alias j='just'
