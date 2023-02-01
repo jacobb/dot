@@ -20,8 +20,8 @@ export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_CLI_EXPERIMENTAL=enabled
 
 # FLAGS
-export CFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+export LDFLAGS="-L/opt/homebre/opt/openssl@1.1/lib"
 
 # bin options
 export LS_OPTIONS='--color=auto'
@@ -69,4 +69,3 @@ fi
 # includes
 source $HOME/.zsh/prompt.sh
 source $HOME/.zsh/aliases.sh
-
