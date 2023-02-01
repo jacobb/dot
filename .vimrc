@@ -26,6 +26,7 @@ Plug 'ghifarit53/tokyonight-vim'
 Plug 'pineapplegiant/spaceduck'
 Plug 'ayu-theme/ayu-vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
 
 " under review
 Plug 'romainl/vim-cool'
@@ -85,7 +86,7 @@ runtime lightline.config.vim
 " set textwidth=88
 
 " pretty
-colors onedark
+colors gruvbox
 if exists('$TMUX')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
