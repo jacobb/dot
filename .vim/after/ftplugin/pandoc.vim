@@ -1,37 +1,6 @@
-setlocal shiftwidth=4
-setlocal tabstop=4
-setlocal softtabstop=4
-
-setlocal textwidth=80
-setlocal indentexpr=
-
-" setlocal columns=79
-" setlocal textwidth=0
-" setlocal wrap
-
-setlocal linebreak
-setlocal nolist
-
-" r Automatically insert the current comment leader after hitting
-"   <Enter> in Insert mode.
-" o Automatically insert the current comment leader after hitting 'o' or
-"   'O' in Normal mode.
-setlocal formatoptions+=roa
-
-" The 'comments' option is a comma-separated list of parts.
-" Each part defines a type of comment string.
-" A part consists of: {flags}:{string}
-
-" {string} is the literal text that must appear.
-
-" {flags}:
-"   n Nested comment.  Nesting with mixed parts is allowed.
-"   b Blank (<Space>, <Tab> or <EOL>) required after {string}.
-setlocal comments=b:*,b:-,b:+,b:1.,n:>
-
-let g:markdown_fenced_languages = ['bash', 'python', 'css', 'javascript', 'js=javascript', 'json=javascript', 'sass', 'html']
-
 nnoremap <silent> <leader>ss :call MarkdownClipboardImage()<cr>
+nnoremap <silent> <leader>id :r !date "+[\%H:\%M]"<cr> f[l
+iab curtim [<C-r>=strftime('%H:%M')<CR>]
 
 function! MarkdownClipboardImage() abort
   " Create `img` directory if it doesn't exist
@@ -61,3 +30,11 @@ function! MarkdownClipboardImage() abort
     execute "normal! i[](" . file_path . ")"
   endif
 endfunction
+
+setlocal shiftwidth=4
+setlocal tabstop=4
+setlocal softtabstop=4
+
+setlocal textwidth=80
+
+let g:pandoc#syntax#codeblocks#embeds#langs = ['bash', 'python', 'css', 'javascript', 'js=javascript', 'json=javascript', 'sass', 'html', 'sh=bash', 'rust']

@@ -1,6 +1,6 @@
 " Fix files with prettier, and then ESLint.
 let b:ale_fixers = ['prettier', 'eslint']
-let b:ale_linters = ['prettier', 'eslint']
+let b:ale_linters = ['tsserver', 'eslint']
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2

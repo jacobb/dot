@@ -1,34 +1,18 @@
-let g:python_highlight_all = 1
-let b:ale_fixers = {'python': ['black']}
-let b:ale_linters = {'python': ['flake8']}
+let g:python_highlight_all = 0
+let b:ale_echo_cursor = 0
+
+let b:ale_fixers = {'python': ['ruff', 'black']}
+let b:ale_linters = {'python': ['ruff', 'pylsp']}
 let b:ale_completion_enabled = 1
-let g:ale_python_pyls_config = {
-            \   "pyls" : {
-            \     "enable" : v:true,
-            \     "trace" : { "server" : "verbose", },
-            \     "commandPath" : "yes",
-            \     "configurationSources" : [ "pycodestyle" ],
-            \     "plugins" : {
-            \       "jedi_completion" : { "enabled" : v:true, },
-            \       "jedi_hover" : { "enabled" : v:true, },
-            \       "jedi_references" : { "enabled" : v:true, },
-            \       "jedi_signature_help" : { "enabled" : v:true, },
-            \       "jedi_symbols" : {
-            \         "enabled" : v:true,
-            \         "all_scopes" : v:true,
-            \       },
-            \       "mccabe" : {
-            \         "enabled" : v:true,
-            \         "threshold" : 15,
-            \       },
-            \       "preload" : { "enabled" : v:true, },
-            \       "pycodestyle" : { "enabled" : v:true, },
-            \       "pydocstyle" : {
-            \         "enabled" : v:false,
-            \         "match" : "(?!test_).*\\.py",
-            \         "matchDir" : "[^\\.].*",
-            \       },
-            \       "pyflakes" : { "enabled" : v:true, },
-            \       "rope_completion" : { "enabled" : v:true, },
-            \       "yapf" : { "enabled" : v:true, },
-            \     }}}
+let g:ale_hover_to_floating_preview = 1
+
+let g:ale_python_pylsp_options = "-v --log-file /Users/jacob/lsp.log"
+let g:ale_python_pylsp_config = {
+      \   'pylsp': {
+      \     'plugins': {
+      \         'definition': {
+      \             'follow_imports': v:true
+      \         }
+      \     },
+      \   }
+      \ }

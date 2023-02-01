@@ -75,6 +75,7 @@
 /.viminfo
 /.vim/plugin
 /.vim/plugged
+/.vim/.netrwhist
 /.virtualenvs
 /.yarn
 /.yarnrc

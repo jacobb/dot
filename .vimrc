@@ -5,17 +5,19 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
 Plug 'dense-analysis/ale'
 Plug 'christoomey/vim-tmux-navigator'
 
+" fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " fzf.vim also adds ag support
-Plug 'sheerun/vim-polyglot' " I gave up
 
 " pretty things
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'ryanoasis/vim-devicons'
+Plug 'sheerun/vim-polyglot' " I gave up
 
 " themes
 Plug 'joshdick/onedark.vim'
@@ -26,7 +28,6 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'NLKNguyen/papercolor-theme'
 
 " under review
-Plug 'ap/vim-css-color'
 Plug 'romainl/vim-cool'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -37,7 +38,8 @@ filetype plugin indent on
 syntax on
 let mapleader = " "
 let maplocalleader = " "
-
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Vertical and horizontal split then hop to a new buffer
 noremap <Leader>v :vsp<cr>
@@ -123,12 +125,13 @@ nnoremap <leader>f :Files .<cr>
 nnoremap <leader>b :History <cr>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
 nnoremap <leader>F :ALEFix<CR>
-nnoremap <leader>r :Ag<CR>
-nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <leader>r :Rg<CR>
+nnoremap <silent> <Leader>ag :Rg <C-R><C-W><CR>
 nnoremap <leader>ne :lne<CR>
 nnoremap <leader>pe :pe<CR>
 nnoremap <leader>cs :set hlsearch!<cr>
 nnoremap <leader>G :G<cr>
+nnoremap <leader>S :setlocal spell! spelllang=en_us<CR>
 
 " sets up line/global search+replace of highlighted word
 nnoremap <leader>s :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
@@ -136,20 +139,19 @@ nnoremap <leader>%       :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " netrw -- who needs nerdtree, maybe?
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
+" let g:netrw_altv = 1
 let g:netrw_winsize = 25
-nnoremap <C-n> :Lexplore<CR>
+" let g:netrw_liststyle = 3
+" let g:netrw_browse_split = 4
+" nnoremap <C-n> :Lexplore<CR>
+nnoremap <Leader>ee :Explore<CR>
 nnoremap <Leader>ntf :Lexplore %:h<CR><CR>
 
 " ale
 nnoremap <silent> <leader>p <Plug>(ale_previous_wrap)
 nnoremap <silent> <leader>n <Plug>(ale_next_wrap)
+set omnifunc=ale#completion#OmniFunc
 let g:ale_html_beautify_options = '-s 2'
-let ale_change_sign_column_color = 1
-set signcolumn=number
-let g:ale_linters = {
-\   'javascript': ['prettier', 'eslint'],
-\   'css': ['prettier'],
-\}
+let g:ale_completion_enabled = 1
+let g:ale_virtualtext_cursor = 0
+let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
