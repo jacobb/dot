@@ -1,0 +1,9 @@
+#!/bin/sh
+CURRENT_WIDTH=`tmux display-message -p '#{pane_width}'`
+
+if [[ $CURRENT_WIDTH -gt 180 ]]
+then
+    delta --side-by-side "$@"
+else
+    delta "$@"
+fi
