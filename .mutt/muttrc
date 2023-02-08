@@ -49,7 +49,7 @@ set spoolfile = "+$my_inbox"
 # Draft folder
 set postponed = "+$my_drafts"
 # Fastmail auto-saves sent files already
-# unset record
+unset record
 set trash = "=$my_trash"
 
 mailboxes   +$my_inbox \
