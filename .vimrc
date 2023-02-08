@@ -6,7 +6,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
+Plug 'jacobb/ale'
 Plug 'christoomey/vim-tmux-navigator'
 
 " fzf
@@ -20,13 +21,14 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot' " I gave up
 
 " themes
-Plug 'joshdick/onedark.vim'
-Plug 'tomasiser/vim-code-dark'
+" Plug 'joshdick/onedark.vim'
+" Plug 'tomasiser/vim-code-dark'
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'pineapplegiant/spaceduck'
-Plug 'ayu-theme/ayu-vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'morhetz/gruvbox'
+" Plug 'pineapplegiant/spaceduck'
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 
 " under review
 Plug 'romainl/vim-cool'
@@ -64,7 +66,7 @@ set splitright
 set hidden  " Allow hidden buffers, don't limit to 1 file per window
 set showcmd
 set wildmenu
-set wildmode=longest,list
+set wildmode=longest:full,longest
 set incsearch
 set noswapfile
 set nobackup
@@ -86,12 +88,14 @@ runtime lightline.config.vim
 " set textwidth=88
 
 " pretty
-colors gruvbox
+colors gruvbox-material
 if exists('$TMUX')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 else
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48:2;%lu;%lu;%lum"
   set termguicolors
 endif
 set background=dark
@@ -117,7 +121,7 @@ endfunction
 au BufNewFile */wiki/diary/*.md call DiaryStart()
 
 " fzf/searching
-set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow\ --iglob=!.git
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 let $FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --theme=tokyo {}' --preview-window 'right:60%' --layout reverse --margin=1,4"
 
@@ -128,8 +132,8 @@ nnoremap <leader>gd :ALEGoToDefinition<CR>
 nnoremap <leader>F :ALEFix<CR>
 nnoremap <leader>r :Rg<CR>
 nnoremap <silent> <Leader>ag :Rg <C-R><C-W><CR>
-nnoremap <leader>ne :lne<CR>
-nnoremap <leader>pe :pe<CR>
+" nnoremap <leader>ne :lne<CR>
+" nnoremap <leader>pe :pe<CR>
 nnoremap <leader>cs :set hlsearch!<cr>
 nnoremap <leader>G :G<cr>
 nnoremap <leader>S :setlocal spell! spelllang=en_us<CR>

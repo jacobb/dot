@@ -9,7 +9,7 @@ syn match pandocSetexHeader /^.\+\n[=]\+$/ contains=pandocEmphasis,pandocStrong,
 syn match pandocSetexHeader /^.\+\n[-]\+$/ contains=pandocEmphasis,pandocStrong,pandocNoFormatted,pandocLaTeXInlineMath,pandocEscapedDollar,@Spell,pandocAmpersandEscape
 syn match pandocHeaderAttr /{.*}/ contained containedin=pandocAtxHeader1,pandocAtxHeader2,pandocAtxHeader3,pandocAtxHeader4,pandocSetexHeader
 
-hi link pandocAtxHeader1 GruvboxOrangeBold
-hi link pandocAtxHeader2 GruvboxPurpleBold
-hi link pandocAtxHeader3 GruvboxBlueBold
-hi link pandocAtxHeader4 GruvboxRedBold
+hi link pandocAtxHeader1 Title
+hi link pandocAtxHeader2 Function
+hi link pandocAtxHeader3 QuickFixLine
+hi link pandocAtxHeader4 BlueBold
