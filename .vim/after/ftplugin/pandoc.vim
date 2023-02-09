@@ -1,4 +1,5 @@
 nnoremap <silent> <leader>ss :call MarkdownClipboardImage()<cr>
+nnoremap <silent> <BS> :call NextFileWee()<cr>
 nnoremap <silent> <leader>id :r !date "+[\%H:\%M]"<cr> f[l
 iab curtim [<C-r>=strftime('%H:%M')<CR>]
 
