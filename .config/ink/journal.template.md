@@ -1,3 +1,8 @@
+---
+title: Journal for {{date}}
+tags: [journal]
+---
+
 # {{date}}
 
 ## Pre Day Thoughts
