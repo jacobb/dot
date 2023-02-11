@@ -62,6 +62,7 @@ alias t='tmux new-session -A -s main'
 alias tp='tmux new-session -A -s personal'
 alias url='urlview'
 alias copysshkey='cat ~/.ssh/id_rsa.pub|pbcopy'
+alias mutt="cd ~; neomutt"
 
 alias did="vim +'normal Go' +'r!date' ~/notes/did.txt"
 alias gr='cd $(git rev-parse --show-toplevel)'
@@ -72,5 +73,9 @@ alias vwd='ink journal'
 
 alias cat='bat'
 alias j='just'
+
+# one day i'll pick
+alias vi='nvim'
+alias vim='nvim'
 
 alias bad_docker_volumes='comm -2 -3 <(docker volume ls -q | sort) <(docker volume ls -q -f name=postgres -f name=search| sort)'
