@@ -1,16 +1,17 @@
 
 function! NextFileWee() abort
     let entry = expand('%:p')
+    if !exists('s:entries')
+        if empty(entry)
+            let entry = getcwd() . '/'
+        endif
 
-    if empty(entry)
-        let entry = getcwd() . '/'
+        let dir_of_cur_entry = fnamemodify(entry, ':h')
+        let s:entries          = globpath(dir_of_cur_entry, '*.md', 0, 1) 
+        call reverse(s:entries)
     endif
-
-    let dir_of_cur_entry = fnamemodify(entry, ':h')
-    let entries          = globpath(dir_of_cur_entry, '*.md', 0, 1) 
-    call reverse(entries)
-    let idx = index(entries, entry)
-    let prev_entry = entries[idx + 1]
+    let s:idx = index(s:entries, entry)
+    let prev_entry = s:entries[s:idx + 1]
     execute 'edit' prev_entry
     return prev_entry
 endfu
