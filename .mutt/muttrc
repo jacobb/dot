@@ -152,7 +152,8 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 
 
 # Colors ---------------------------------------------
-source ~/.mutt/dracula.muttrc
+source ~/.mutt/gruvbox/colors-gruvbox-shuber.muttrc
+source ~/.mutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
 
 # Index View Options ---------------------------------
 set index_format="%Z %D %-15.15L %s"
