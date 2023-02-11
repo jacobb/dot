@@ -1,6 +1,3 @@
-env:
-  TERM: xterm-256color
-
 window:
   # Values for `decorations`: (full, none, transparent (macos), buttonless (macos)
   decorations: none
@@ -15,7 +12,7 @@ scrolling:
 # Font configuration
 font:
   size: 15.0
-  use_thin_strokes: true  # retina only
+  AppleFontSmoothing: true
   normal:
     # family: Inconsolata Nerd Font
     # family: SauceCodePro Nerd Font
@@ -154,7 +151,7 @@ hints:
         enabled: true
         mods: Control
 
-colors: *nightfox
+colors: *gruvbox
 
 key_bindings:
   - { key: A,         mods: Alt,       chars: "\x1ba" }
