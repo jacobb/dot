@@ -6,6 +6,7 @@
 *~
 /.arcrc
 /.aws
+/bin/ink
 /bin/kubectl
 /bin/google-cloud-sdk/
 /bin/vi
@@ -73,7 +74,6 @@
 /.tmp
 /.vagrant.d/
 /.viminfo
-/.vim/plugin
 /.vim/plugged
 /.vim/.netrwhist
 /.virtualenvs
